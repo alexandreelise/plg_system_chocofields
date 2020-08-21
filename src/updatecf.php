@@ -9,7 +9,7 @@
  * @author    Pascal Leconte <pascal.leconte@conseilgouz.com>
  * @author    Christophe Avonture <christophe@avonture.be>
  * @author    Marc Dechèvre <marc@woluweb.be>
- * @license   GNU GPL
+ * @license   GNU GPL-2.0-or-later
  *
  * @link https://github.com/woluweb/updatecf
  * @wiki https://github.com/woluweb/updatecf/-/wikis/home
