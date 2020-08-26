@@ -2,3 +2,11 @@
 .config/
 .vscode/
 updatecf.zip
+build/
+.idea/
+vendor/
+joomla3x/
+joomla4x/
+*.cache
+*.tmp
+composer.lock

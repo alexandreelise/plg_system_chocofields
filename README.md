@@ -60,4 +60,4 @@ The plugin has several Options. You can indeed:
 - select the Categories for which the synchronisation will take place
 - select the frequency of the synchronization
 - select the time at which the synchronization should trigger (in the TimeZone of the site. Note that the Log file is expressed in UTC)
-- enable/disable the Action Log (you can access the Log file on /administrator/logs/updatecf.trace.log)
+- enable/disable the Action Log (you can access the Log file on /administrator/logs/updatecf.trace.log.php)

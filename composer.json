@@ -1,0 +1,45 @@
+{
+  "name": "woluweb/updatecf",
+  "type": "project",
+  "description": "A plugin allowing to populate Joomla Custom Fields from Web Services",
+  "homepage": "https://github.com/woluweb/updatecf.git",
+  "minimum-stability": "dev",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Pascal Leconte",
+      "email": "pascal.leconte@conseilgouz.com"
+    },
+    {
+      "name": "Christophe Avonture",
+      "email": "christophe@avonture.be"
+    },
+    {
+      "name": "Marc Dechèvre",
+      "email": "marc@woluweb.be"
+    },
+    {
+      "name": "Alexandre ELISÉ",
+      "email": "contact@alexandre-elise.fr",
+      "homepage": "https://alexandre-elise.fr"
+    }
+  ],
+  "config": {
+    "optimize-autoloader": true,
+    "apcu-autoloader": true
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AE\\Tests\\": "tests/AE/Tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.2",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "^9",
+    "phpdocumentor/phpdocumentor": "^v2.9.1"
+  }
+}

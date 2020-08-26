@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>plg_system_updatecf</title>
+    <parser>
+        <target>docs</target>
+        <encoding>utf8</encoding>
+        <markers>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+            <extension>php3</extension>
+            <extension>phtml</extension>
+        </extensions>
+        <visibility/>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <logging>
+        <level>warn</level>
+    </logging>
+    <transformations>
+        <template name="responsive" />
+    </transformations>
+    <files>
+        <file>test.php</file>
+        <file>bin/*</file>
+        <directory>src</directory>
+        <directory>tes??</directory>
+        <ignore>test/*</ignore>
+    </files>
+</phpdoc>
