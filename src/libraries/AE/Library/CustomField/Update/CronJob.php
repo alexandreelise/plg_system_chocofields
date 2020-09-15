@@ -18,8 +18,9 @@ namespace AE\Library\CustomField\Update;
 
 use AE\Library\CustomField\Service\Core;
 use AE\Library\CustomField\Util\Util;
+use function defined;
 
-\defined('_JEXEC') or die;
+defined('_JEXEC') or die;
 
 /**
  * Concrete class responsible of running business logic (think of a model)

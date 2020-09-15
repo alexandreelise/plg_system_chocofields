@@ -15,7 +15,9 @@ declare(strict_types=1);
 
 namespace AE\Library\CustomField\Data;
 
-\defined('_JEXEC') or die;
+use function defined;
+
+defined('_JEXEC') or die;
 
 /**
  * HttpResponse DTO (Data Transfert Object)

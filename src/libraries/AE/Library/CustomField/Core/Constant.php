@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace AE\Library\CustomField\Core;
 
-\defined('_JEXEC') or die;
+use function defined;
+
+defined('_JEXEC') or die;
 
 /**
  * All constants used in this plugin in one place

@@ -26,16 +26,66 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="domain"
+				<field name="base_url"
 					   type="url"
-					   label="PLG_SYSTEM_UPDATECF_DOMAIN_TO_FETCH_LABEL"
-					   description="PLG_SYSTEM_UPDATECF_DOMAIN_TO_FETCH_DESCRIPTION"
+					   label="PLG_SYSTEM_UPDATECF_BASE_URL_TO_FETCH_LABEL"
+					   description="PLG_SYSTEM_UPDATECF_BASE_URL_TO_FETCH_DESCRIPTION"
 					   default="https://social.brussels/rest/organisation/"
+					   size="255"
 					   maxlength="255"
 					   filter="url"
 					   validate="url"
+					   scheme="https"
 					   hint="https://example.com/rest"
 				/>
+
+				<field
+						name="default_resource_id"
+						type="text"
+						label="PLG_SYSTEM_UPDATECF_DEFAULT_RESOURCE_ID_LABEL"
+						description="PLG_SYSTEM_UPDATECF_DEFAULT_RESOURCE_ID_DESCRIPTION"
+						size="255"
+						maxlength="255"
+						filter="alnum"
+						default="13219"
+				/>
+				<field
+						name="dynamic_mapping"
+						type="subform"
+						label="PLG_SYSTEM_UPDATECF_DYNAMIC_MAPPING_LABEL"
+						description="PLG_SYSTEM_UPDATECF_DYNAMIC_MAPPING_DESCRIPTION"
+						multiple="true"
+						min="0"
+						max="1000"
+						filter="subform"
+						default=""
+				>
+					<form>
+						<fields name="mapping">
+							<field
+									name="local_field"
+									type="text"
+									label="PLG_SYSTEM_UPDATECF_LOCAL_FIELD_LABEL"
+									description="PLG_SYSTEM_UPDATECF_LOCAL_FIELD_DESCRIPTION"
+									filter="string"
+									size="255"
+									maxlength="255"
+									default=""
+							/>
+							<field
+									name="remote_field"
+									type="text"
+									label="PLG_SYSTEM_UPDATECF_REMOTE_FIELD_LABEL"
+									description="PLG_SYSTEM_UPDATECF_REMOTE_FIELD_DESCRIPTION"
+									filter="string"
+									size="255"
+									maxlength="255"
+									default=""
+							/>
+						</fields>
+					</form>
+				</field>
+
 				<field
 						name="categories"
 						type="category"
@@ -44,6 +94,16 @@
 						label="PLG_SYSTEM_UPDATECF_CATEGORIES_LABEL"
 						description="PLG_SYSTEM_UPDATECF_CATEGORIES_DESCRIPTION"
 				/>
+
+				<field name="field_context"
+					   type="text"
+					   label="PLG_SYSTEM_UPDATECF_FIELD_CONTEXT_LABEL"
+					   description="PLG_SYSTEM_UPDATECF_FIELD_CONTEXT_LABEL"
+					   default="com_content.article"
+					   hint="com_content.article"
+					   filter="cmd"
+				/>
+
 				<field name="log" type="radio"
 					   default="0"
 					   label="PLG_SYSTEM_UPDATECF_ACTION_LOG_LABEL"
@@ -57,4 +117,8 @@
 			</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="plg_system_updatecf">http://localhost:8000/updates/2-0-0.xml
+		</server>
+	</updateservers>
 </extension>

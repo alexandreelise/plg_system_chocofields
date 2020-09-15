@@ -28,6 +28,11 @@
     "optimize-autoloader": true,
     "apcu-autoloader": true
   },
+  "autoload": {
+    "psr-4": {
+      "AE\\Library\\CustomField\\": "src/libraries/AE/Library/CustomField/"
+    }
+  },
   "autoload-dev": {
     "psr-4": {
       "AE\\Tests\\": "tests/AE/Tests/"
@@ -39,7 +44,7 @@
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
-    "phpunit/phpunit": "^9",
+    "phpunit/phpunit": "^9.2",
     "phpdocumentor/phpdocumentor": "^v2.9.1"
   }
 }

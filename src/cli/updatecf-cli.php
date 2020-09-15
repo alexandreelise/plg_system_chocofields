@@ -1,6 +1,8 @@
 <?php
-
 /**
+ * Native Joomla! CliApplication to handle cron tasks using command line
+ * and update custom fields on a custom regular basis
+ *
  * @package       updatecf-cli
  * @author        Alexandre ELISÉ <contact@alexandre-elise.fr>
  * @link          https://alexandre-elise.fr
@@ -13,7 +15,6 @@
 // Make sure we're being called from the command line, not a web interface
 
 use AE\Library\CustomField\Update\CronJob;
-use AE\Library\CustomField\Util\Util;
 use Joomla\CMS\Application\CliApplication;
 use Joomla\CMS\Factory;
 
@@ -21,16 +22,20 @@ use Joomla\CMS\Factory;
 error_reporting(E_ALL | E_NOTICE);
 ini_set('display_errors', 1);
 
-if (PHP_SAPI !== 'cli')
-{
-	die('This is a command line only application.');
-}
-
 // We are a valid entry point.
 if (!defined('_JEXEC'))
 {
 	define('_JEXEC', 1);
 }
+
+defined('_JEXEC') or die;
+
+if (PHP_SAPI !== 'cli')
+{
+	die('This is a command line only application.');
+}
+
+
 // Load system defines
 if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'defines.php'))
 {
@@ -61,44 +66,6 @@ ob_end_clean();
 // System configuration.
 $config = new JConfig;
 
-// Set the error_reporting
-switch ($config->error_reporting)
-{
-	case 'default':
-	case '-1':
-		break;
-
-	case 'none':
-	case '0':
-		error_reporting(0);
-
-		break;
-
-	case 'simple':
-		error_reporting(E_ERROR | E_WARNING | E_PARSE);
-		ini_set('display_errors', 1);
-
-		break;
-
-	case 'maximum':
-		error_reporting(E_ALL);
-		ini_set('display_errors', 1);
-
-		break;
-
-	case 'development':
-		error_reporting(-1);
-		ini_set('display_errors', 1);
-
-		break;
-
-	default:
-		error_reporting($config->error_reporting);
-		ini_set('display_errors', 1);
-
-		break;
-}
-
 if (!defined('JDEBUG')) {
 	define('JDEBUG', $config->debug);
 }
@@ -127,8 +94,11 @@ JLoader::registerNamespace(
 
 if (!class_exists('UpdateCfCli'))
 {
-
+	
 	/**
+	 * Native Joomla! CliApplication to handle cron tasks using command line
+	 * and update custom fields on a custom regular basis
+	 *
 	 * @package     ${NAMESPACE}
 	 *
 	 * @since       version
@@ -141,33 +111,41 @@ if (!class_exists('UpdateCfCli'))
 		 * @since version
 		 */
 		private static $cronjob;
-
+		
 		/**
 		 * UpdateCfCli constructor.
 		 */
 		public function __construct()
 		{
 			parent::__construct();
-
+			
 			if (!isset(static::$cronjob)) {
 				static::$cronjob = new CronJob();
 			}
 		}
-
-
+		
+		
 		/**
+		 * Main task to execute
+		 *
 		 * @throws Throwable
 		 */
 		protected function doExecute()
 		{
 			$this->out('Update - Custom Fields - Cli');
 			$this->out('================================');
-
+			
 			// Remove the script time limit.
 			set_time_limit(0);
-
+			
 			try
 			{
+				// Fool the system into thinking we are running as JSite
+				$_SERVER['HTTP_HOST'] = 'example.com';
+				Factory::getApplication('site');
+				defined('JPATH_COMPONENT') || define('JPATH_COMPONENT', JPATH_BASE . '/components/com_fields');
+				
+				
 				static::$cronjob->run();
 			}
 			catch (Exception $exception)
@@ -175,9 +153,9 @@ if (!class_exists('UpdateCfCli'))
 				$this->out($exception->getMessage());
 			}
 		}
-
+		
 		/**
-		 *
+		 * Name of the CliApplication subclass
 		 * @return string|void
 		 *
 		 * @since version

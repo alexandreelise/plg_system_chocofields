@@ -19,8 +19,8 @@ ini_set('display_errors', 1);
 
 define('_JEXEC', 1);
 
-$_SERVER['HTTP_HOST'] = null;
-$_SERVER['REQUEST_URI'] = null;
+$_SERVER['HTTP_HOST'] = 'example.com';
+$_SERVER['REQUEST_URI'] = '';
 
 $joomla_directory = 'joomla4x'; // or joomla4x
 
@@ -44,10 +44,6 @@ if (!defined('_JDEFINES'))
 require_once JPATH_BASE . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'framework.php';
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR .'autoload.php';
 
-$app = Factory::getApplication('site');
-$app->initialise();
-
+// plugin code
 require_once __DIR__ . '/src/updatecf.php';
-
-PluginHelper::importPlugin('system');
 

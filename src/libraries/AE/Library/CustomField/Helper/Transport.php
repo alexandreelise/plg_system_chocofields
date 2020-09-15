@@ -21,7 +21,9 @@ use function curl_exec;
 use function curl_getinfo;
 use function curl_init;
 use function curl_setopt;
+use function defined;
 use function extension_loaded;
+use function is_bool;
 use const CURLOPT_AUTOREFERER;
 use const CURLOPT_CONNECTTIMEOUT;
 use const CURLOPT_REFERER;
@@ -30,7 +32,7 @@ use const CURLOPT_TIMEOUT;
 use const CURLOPT_URL;
 use const CURLOPT_USERAGENT;
 
-\defined('_JEXEC') or die;
+defined('_JEXEC') or die;
 
 /**
  * Transport related helper
@@ -71,7 +73,7 @@ abstract class Transport
 		
 		$result = curl_exec($curl);
 		
-		if (\is_bool($result))
+		if (is_bool($result))
 		{
 			$response = '';
 		}

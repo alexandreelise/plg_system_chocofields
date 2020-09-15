@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace AE\Library\CustomField\Update;
 
-\defined('_JEXEC') or die;
+use function defined;
+
+defined('_JEXEC') or die;
 /**
  * Simple interface representing cronjobs
  *
