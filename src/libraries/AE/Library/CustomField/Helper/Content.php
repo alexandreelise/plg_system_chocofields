@@ -14,20 +14,15 @@ declare(strict_types=1);
 
 namespace AE\Library\CustomField\Helper;
 
-use AE\Library\CustomField\Core\Constant;
 use AE\Library\CustomField\Util\Util;
 use FieldsHelper;
 use JLoader;
 use Joomla\CMS\Cache\Exception\CacheConnectingException;
 use Joomla\CMS\Cache\Exception\UnsupportedCacheException;
 use Joomla\CMS\Factory;
-use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Registry\Registry;
 use Joomla\Utilities\ArrayHelper;
-use function define;
 use function defined;
-use function in_array;
 use function sha1;
 use function trim;
 use const DIRECTORY_SEPARATOR;
@@ -80,10 +75,12 @@ abstract class Content
 	 */
 	public static function updateArticleCustomFields($article, Registry $plugin_params): bool
 	{
+		JLoader::setup();
+		
 		JLoader::register('FieldsHelper',
 			JPATH_ADMINISTRATOR
 			. DIRECTORY_SEPARATOR
-		. 'components'
+		    . 'components'
 			. DIRECTORY_SEPARATOR
 			. 'com_fields'
 			. DIRECTORY_SEPARATOR
@@ -96,20 +93,20 @@ abstract class Content
 		
 		$custom_fields_by_name = ArrayHelper::pivot($fields ?? [], 'name');
 		
-		$update           = ((int) ($custom_fields_by_name['cf-update']->rawvalue) === 1);
+		$update           = (((int) ($custom_fields_by_name['cf-update']->rawvalue)) === 1);
 		$id_external_source = trim((string) ($custom_fields_by_name['id-external-source']->rawvalue ?? $plugin_params->get('default_resource_id','13219')));
 		
 		
 		// We update a Article only if its Custom Field is set on Yes and if the
 		// ID of the External Source is filled in
-		if ($update && ('' !== $id_external_source))
+		if ($update && !empty($id_external_source))
 		{
-			$base_url = $plugin_params->get('base_url', 'https://social.brussels/rest/organisation/') ?? '';
+			$base_url = $plugin_params->get('base_url', 'https://social.brussels/rest/organisation/');
 			
 			$content_response = Util::fetchApiData($base_url, $id_external_source);
 			
 			// Updating custom fields in the article
-			return (($content_response !==false) ? static::updateCustomFields((int) $article->id, $custom_fields_by_name, $content_response->getBody())
+			return (($content_response !== false) ? static::updateCustomFields((int) $article->id, $custom_fields_by_name, $content_response->getBody())
 				: false);
 		}
 		
@@ -148,22 +145,7 @@ abstract class Content
 		
 		$flatten_json_array = Util::flattenAssocArray($jsonArray);
 		
-		//quick fix due to warning
-		defined('JPATH_COMPONENT') || define('JPATH_COMPONENT', JPATH_BASE . '/components/com_fields');
-		
-		BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR
-			. DIRECTORY_SEPARATOR
-			. 'components'
-			. DIRECTORY_SEPARATOR
-			. 'com_fields'
-			. DIRECTORY_SEPARATOR
-			. 'models'
-		);
-		
-		/**
-		 * @var \FieldsModelField $model
-		 */
-		$model = BaseDatabaseModel::getInstance('Field', 'FieldsModel', ['ignore_request' => true]);
+		$model = Util::createFieldModel();
 		
 		foreach ($flatten_json_array as $key => $value)
 		{

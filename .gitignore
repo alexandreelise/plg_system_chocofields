@@ -2,7 +2,7 @@
 .config/
 .vscode/
 updatecf.zip
-build/
+!build/
 .idea/
 vendor/
 joomla3x/

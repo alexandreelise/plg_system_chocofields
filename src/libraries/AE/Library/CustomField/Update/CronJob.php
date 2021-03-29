@@ -31,8 +31,6 @@ final class CronJob implements CronJobInterface
 {
 	public function run(): void
 	{
-	   $plugin_params = Util::getMainPluginParams();
-	   
-	   Core::goUpdate($plugin_params);
+	   Core::goUpdate(Util::getMainPluginParams());
 	}
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest" methodName="test__invoke_with_integer_value" prettifiedClassName="Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)" prettifiedMethodName="invoke with integer value" status="0" time="0.003116363" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference"/>
+  </test>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest" methodName="test__invoke_with_text_value_with_more_than_255_chars_and_less_than_400_chars" prettifiedClassName="Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)" prettifiedMethodName="invoke with text value with more than 255 chars and less than 400 chars" status="0" time="0.000535408" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference"/>
+  </test>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest" methodName="test__invoke_with_flatten_string_key_with_numeric_part" prettifiedClassName="Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)" prettifiedMethodName="invoke with flatten string key with numeric part" status="0" time="0.00053621" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference"/>
+  </test>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest" methodName="test__invoke_with_float_value" prettifiedClassName="Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)" prettifiedMethodName="invoke with float value" status="0" time="0.000524239" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference"/>
+  </test>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest" methodName="test__invoke_with_text_value_with_less_than_255_chars" prettifiedClassName="Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)" prettifiedMethodName="invoke with text value with less than 255 chars" status="0" time="0.000512459" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference"/>
+  </test>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest" methodName="test__invoke_with_text_value_with_more_than_400_chars" prettifiedClassName="Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)" prettifiedMethodName="invoke with text value with more than 400 chars" status="0" time="0.000568042" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference"/>
+  </test>
+  <test className="AE\Library\CustomField\Helper\Tests\DynamicMappingTest" methodName="testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray" prettifiedClassName="Dynamic Mapping (AE\Library\CustomField\Helper\Tests\DynamicMapping)" prettifiedMethodName="Prefill remote fields with valid data returns non empty array" status="0" time="41.444400413" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicMapping::prefillRemoteFields"/>
+    <covers target="\AE\Library\CustomField\Core\Constant::getDataDirectory"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicCustomFieldInference::__invoke"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicMapping::createFieldData"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicMapping::generateCustomFields"/>
+    <covers target="\AE\Library\CustomField\Helper\DynamicMapping::generateInitialFields"/>
+    <covers target="\AE\Library\CustomField\Util\Util::createFieldModel"/>
+    <covers target="\AE\Library\CustomField\Util\Util::flattenAssocArray"/>
+    <covers target="\AE\Library\CustomField\Util\Util::getJsonArray"/>
+    <covers target="\AE\Library\CustomField\Util\Util::getMainPluginParams"/>
+    <covers target="\AE\Library\CustomField\Util\Util::isUniqueFieldName"/>
+    <covers target="\AE\Library\CustomField\Util\Util::realKey"/>
+    <covers target="\AE\Library\CustomField\Util\Util::realTitle"/>
+  </test>
+  <test className="AE\Library\CustomField\Util\Tests\UtilTest" methodName="testGetJsonArrayWithCachedApiJsonFile" prettifiedClassName="Util (AE\Library\CustomField\Util\Tests\Util)" prettifiedMethodName="Get json array with cached api json file" status="0" time="0.000526275" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Util\Util::getJsonArray"/>
+    <covers target="\AE\Library\CustomField\Core\Constant::getDataDirectory"/>
+  </test>
+  <test className="AE\Library\CustomField\Util\Tests\UtilTest" methodName="testFlattenAssocArrayReturnsValidData" prettifiedClassName="Util (AE\Library\CustomField\Util\Tests\Util)" prettifiedMethodName="Flatten assoc array returns valid data" status="0" time="0.000851629" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Util\Util"/>
+  </test>
+  <test className="AE\Library\CustomField\Util\Tests\UtilTest" methodName="testFlatten5LevelsDeepAssocArrayReturnsValidData" prettifiedClassName="Util (AE\Library\CustomField\Util\Tests\Util)" prettifiedMethodName="Flatten 5 levels deep assoc array returns valid data" status="0" time="0.000635682" size="-1" groups="default">
+    <group name="default"/>
+    <covers target="\AE\Library\CustomField\Util\Util"/>
+  </test>
+</tests>

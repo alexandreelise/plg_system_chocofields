@@ -16,21 +16,16 @@ declare(strict_types=1);
 namespace AE\Library\CustomField\Helper;
 
 use AE\Library\CustomField\Core\Constant;
+use AE\Library\CustomField\ErrorHandling\NotFoundException;
+use AE\Library\CustomField\ErrorHandling\UnprocessableEntityException;
 use AE\Library\CustomField\Util\Util;
 use Joomla\CMS\Filesystem\File;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-use function array_key_exists;
-use function array_keys;
-use function define;
 use function defined;
 use function file_exists;
 use function file_get_contents;
 use function filesize;
-use function in_array;
 use function trim;
-use const DIRECTORY_SEPARATOR;
-use const JPATH_ADMINISTRATOR;
 
 defined('_JEXEC') or die;
 
@@ -55,102 +50,64 @@ abstract class DynamicMapping
 	 * @param   string       $base_url
 	 * @param   string|null  $id
 	 *
-	 * @return bool|array $dynamic_mapping array on success. false on failure.
-	 *
+	 * @return bool true on success
+	 * @throws \AE\Library\CustomField\ErrorHandling\NoContentException|\AE\Library\CustomField\ErrorHandling\NotFoundException
 	 * @since version
 	 */
-	public static function prefillRemoteFields(string $base_url, ?string $id = null)
+	public static function prefillRemoteFields(string $base_url, ?string $id = null): bool
 	{
 		// cache api response
-		$filename = JPATH_ROOT
-			. DIRECTORY_SEPARATOR
-			. 'media'
-			. DIRECTORY_SEPARATOR
-			. 'plg_system_updatecf'
-			. DIRECTORY_SEPARATOR
-			. 'data'
-			. DIRECTORY_SEPARATOR
-			. 'api.json';
+		$path = Constant::getDataDirectory();
+		
+		// extension
+		$extension = '.json';
+		
+		$filename = $path . 'api' . $extension;
+		
 		
 		$json_response = '';
 		
-		if (!file_exists($filename) || (filesize($filename) < 1))
-		{
-			$json_response = Util::fetchApiData($base_url, $id);
-			
-			if (false === $json_response)
-			{
-				return false;
-			}
-			
-			File::write($filename, $json_response, true);
-		}
-		elseif (file_exists($filename) && (filesize($filename) > 1))
+		if (file_exists($filename) && (filesize($filename) > 1))
 		{
 			$json_response = file_get_contents($filename);
+		}
+		elseif (!file_exists($filename) || (filesize($filename) < 1))
+		{
+			try
+			{
+				$json_response = Util::fetchApiData($base_url, $id);
+				
+				File::write($filename, $json_response, true);
+			}
+			catch (UnprocessableEntityException $noContentException)
+			{
+				$json_response = '';
+			}
+			catch (NotFoundException $notFoundException)
+			{
+				$json_response = '';
+			}
+			
+		}
+		
+		
+		if (empty($json_response))
+		{
+			throw new UnprocessableEntityException();
 		}
 		
 		$json_array = Util::getJsonArray($json_response);
 		
 		if (empty($json_array))
 		{
-			return false;
+			throw new UnprocessableEntityException();
 		}
 		
 		$remote_data_structure = Util::flattenAssocArray($json_array);
 		
-		$remote_field_names = array_keys($remote_data_structure);
-		
-		//generate custom fields
-		
-		return ((self::generateInitialFields()
-			&& self::generateCustomFields($remote_data_structure))
-			? self::dynamicMapping($remote_field_names, [])
-			: false);
+		return (self::generateInitialFields() || self::generateCustomFields($remote_data_structure));
 	}
 	
-	/**
-	 * Create assoc array of dynamic mapping to later encode it to json string
-	 *
-	 * @param   array  $remote_field_names
-	 *
-	 * @param   array  $current_dynamic_mapping
-	 *
-	 * @return array[]
-	 *
-	 * @since version
-	 */
-	private static function dynamicMapping(array $remote_field_names, array $current_dynamic_mapping): array
-	{
-		$dynamic_mapping_prepopulate = empty($current_dynamic_mapping) ? [] : $current_dynamic_mapping;
-		$dynamic_mapping             = 'dynamic_mapping';
-		$mapping                     = 'mapping';
-		$local_field                 = 'local_field';
-		$remote_field                = 'remote_field';
-		
-		foreach ($remote_field_names as $k => $remote_field_name)
-		{
-			if (!array_key_exists($dynamic_mapping . $k, $dynamic_mapping_prepopulate))
-			{
-				$dynamic_mapping_prepopulate[$dynamic_mapping . $k] = [
-					$mapping => [
-						$local_field  => '',
-						$remote_field => '',
-					],
-				];
-			}
-			if (empty($dynamic_mapping_prepopulate[$dynamic_mapping . $k][$mapping][$local_field]))
-			{
-				$dynamic_mapping_prepopulate[$dynamic_mapping . $k][$mapping][$local_field] = $remote_field_name;
-			}
-			if (empty($dynamic_mapping_prepopulate[$dynamic_mapping . $k][$mapping][$remote_field]))
-			{
-				$dynamic_mapping_prepopulate[$dynamic_mapping . $k][$mapping][$remote_field] = $remote_field_name;
-			}
-		}
-		
-		return $dynamic_mapping_prepopulate;
-	}
 	
 	/**
 	 * @param   array  $flatten_json_array
@@ -163,24 +120,12 @@ abstract class DynamicMapping
 	{
 		$plugin_params = Util::getMainPluginParams();
 		
-		// quick fix due to warning
-		defined('JPATH_COMPONENT') || define('JPATH_COMPONENT', JPATH_BASE . '/components/com_fields');
-		
-		BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR
-			. DIRECTORY_SEPARATOR
-			. 'components'
-			. DIRECTORY_SEPARATOR
-			. 'com_fields'
-			. DIRECTORY_SEPARATOR
-			. 'models'
-		);
-		
-		/**
-		 * @var \FieldsModelField $model
-		 */
-		$model = BaseDatabaseModel::getInstance('Field', 'FieldsModel', ['ignore_request' => true]);
+		$model = Util::createFieldModel();
 		
 		$context = trim($plugin_params->get('field_context', 'com_content.article'));
+		
+		$output = false;
+		$infer  = (new DynamicCustomFieldInference());
 		
 		foreach ($flatten_json_array as $key => $value)
 		{
@@ -197,7 +142,7 @@ abstract class DynamicMapping
 				$context,
 				$title,
 				$name,
-				'text',
+				$infer($key, $value)->inferredFieldType,
 				[
 					"hint"               => "",
 					"class"              => "",
@@ -208,13 +153,14 @@ abstract class DynamicMapping
 					"label_render_class" => "",
 					"display"            => "2",
 					"layout"             => "",
-					"display_readonly"   => "2",
+					"display_readonly"   => "1",
 				],
-				[], null);
-			$model->save($data);
+				['filter' => $infer($key, $value)->inferredFieldFilter],
+				null);
+			$output = $model->save($data);
 		}
 		
-		return true;
+		return $output;
 	}
 	
 	/**
@@ -270,22 +216,7 @@ abstract class DynamicMapping
 	{
 		$plugin_params = Util::getMainPluginParams();
 		
-		// quick fix due to warning
-		defined('JPATH_COMPONENT') || define('JPATH_COMPONENT', JPATH_BASE . '/components/com_fields');
-		
-		BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR
-			. DIRECTORY_SEPARATOR
-			. 'components'
-			. DIRECTORY_SEPARATOR
-			. 'com_fields'
-			. DIRECTORY_SEPARATOR
-			. 'models'
-		);
-		
-		/**
-		 * @var \FieldsModelField $model
-		 */
-		$model = BaseDatabaseModel::getInstance('Field', 'FieldsModel', ['ignore_request' => true]);
+		$model = Util::createFieldModel();
 		
 		$context = trim($plugin_params->get('field_context', 'com_content.article'));
 		
@@ -308,14 +239,13 @@ abstract class DynamicMapping
 				"label_render_class" => "",
 				"display"            => "2",
 				"layout"             => "",
-				"display_readonly"   => "2",
+				"display_readonly"   => "1",
 			],
-		[], null);
-		if (true === Util::isUniqueFieldName($name))
-		{
-			$model->save($data);
-		}
+			['filter' => 'integer'],
+			null
+		);
 		
+		$output = (Util::isUniqueFieldName($name) && $model->save($data));
 		
 		// radio yes or no update api
 		
@@ -338,7 +268,7 @@ abstract class DynamicMapping
 				"label_render_class" => "",
 				"display"            => "2",
 				"layout"             => "",
-				"display_readonly"   => "2",
+				"display_readonly"   => "1",
 			],
 			[
 				'options' => [
@@ -351,14 +281,13 @@ abstract class DynamicMapping
 						'value' => 1,
 					],
 				],
+				'filter'  => 'integer',
 			], null
 		);
-		if (true === Util::isUniqueFieldName($name_yes_no))
-		{
-			$model->save($data_yes_no);
-		}
 		
-		return true;
+		$output_yes_no = (Util::isUniqueFieldName($name_yes_no) && $model->save($data_yes_no));
+		
+		return ($output && $output_yes_no);
 	}
 	
 }

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crap_result>
+  <project/>
+  <timestamp>2021-03-29 14:54:10</timestamp>
+  <stats>
+    <name>Method Crap Stats</name>
+    <methodCount>32</methodCount>
+    <crapMethodCount>0</crapMethodCount>
+    <crapLoad>0</crapLoad>
+    <totalCrap>204.11</totalCrap>
+    <crapMethodPercent>0</crapMethodPercent>
+  </stats>
+  <methods>
+    <method>
+      <package>AE\Library\CustomField\Core</package>
+      <className>AE\Library\CustomField\Core\Constant</className>
+      <methodName>getDataDirectory</methodName>
+      <methodSignature>getDataDirectory(): string</methodSignature>
+      <fullMethod>getDataDirectory(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\ErrorHandling</package>
+      <className>AE\Library\CustomField\ErrorHandling\ForbiddenException</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($message, $code, Throwable $previous)</methodSignature>
+      <fullMethod>__construct($message, $code, Throwable $previous)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\ErrorHandling</package>
+      <className>AE\Library\CustomField\ErrorHandling\InternalServerErrorException</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($message, $code, Throwable $previous)</methodSignature>
+      <fullMethod>__construct($message, $code, Throwable $previous)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\ErrorHandling</package>
+      <className>AE\Library\CustomField\ErrorHandling\NoContentException</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($message, $code, Throwable $previous)</methodSignature>
+      <fullMethod>__construct($message, $code, Throwable $previous)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\ErrorHandling</package>
+      <className>AE\Library\CustomField\ErrorHandling\NotFoundException</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($message, $code, Throwable $previous)</methodSignature>
+      <fullMethod>__construct($message, $code, Throwable $previous)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\ErrorHandling</package>
+      <className>AE\Library\CustomField\ErrorHandling\UnauthorizedException</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($message, $code, Throwable $previous)</methodSignature>
+      <fullMethod>__construct($message, $code, Throwable $previous)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\ErrorHandling</package>
+      <className>AE\Library\CustomField\ErrorHandling\UnprocessableEntityException</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($message, $code, Throwable $previous)</methodSignature>
+      <fullMethod>__construct($message, $code, Throwable $previous)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\Content</className>
+      <methodName>getAllCategories</methodName>
+      <methodSignature>getAllCategories(): array</methodSignature>
+      <fullMethod>getAllCategories(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\Content</className>
+      <methodName>updateArticleCustomFields</methodName>
+      <methodSignature>updateArticleCustomFields($article, Joomla\Registry\Registry $plugin_params): bool</methodSignature>
+      <fullMethod>updateArticleCustomFields($article, Joomla\Registry\Registry $plugin_params): bool</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\Content</className>
+      <methodName>updateCustomFields</methodName>
+      <methodSignature>updateCustomFields(int $articleId, array $custom_fields_by_name, string $http_response_body): bool</methodSignature>
+      <fullMethod>updateCustomFields(int $articleId, array $custom_fields_by_name, string $http_response_body): bool</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\DynamicCustomFieldInference</className>
+      <methodName>__invoke</methodName>
+      <methodSignature>__invoke($key, $value)</methodSignature>
+      <fullMethod>__invoke($key, $value)</fullMethod>
+      <crap>12</crap>
+      <complexity>12</complexity>
+      <coverage>97.14</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\DynamicMapping</className>
+      <methodName>prefillRemoteFields</methodName>
+      <methodSignature>prefillRemoteFields(string $base_url, ?string $id): bool</methodSignature>
+      <fullMethod>prefillRemoteFields(string $base_url, ?string $id): bool</fullMethod>
+      <crap>19.11</crap>
+      <complexity>10</complexity>
+      <coverage>55</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\DynamicMapping</className>
+      <methodName>generateCustomFields</methodName>
+      <methodSignature>generateCustomFields(array $flatten_json_array): bool</methodSignature>
+      <fullMethod>generateCustomFields(array $flatten_json_array): bool</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\DynamicMapping</className>
+      <methodName>createFieldData</methodName>
+      <methodSignature>createFieldData(string $context, string $title, string $name, string $type, array $params, array $fieldparams, $default_value): array</methodSignature>
+      <fullMethod>createFieldData(string $context, string $title, string $name, string $type, array $params, array $fieldparams, $default_value): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Helper</package>
+      <className>AE\Library\CustomField\Helper\DynamicMapping</className>
+      <methodName>generateInitialFields</methodName>
+      <methodSignature>generateInitialFields()</methodSignature>
+      <fullMethod>generateInitialFields()</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Service</package>
+      <className>AE\Library\CustomField\Service\Core</className>
+      <methodName>goUpdate</methodName>
+      <methodSignature>goUpdate(Joomla\Registry\Registry $plugin_params): void</methodSignature>
+      <fullMethod>goUpdate(Joomla\Registry\Registry $plugin_params): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Service</package>
+      <className>AE\Library\CustomField\Service\Core</className>
+      <methodName>manualPluginSaving</methodName>
+      <methodSignature>manualPluginSaving(Joomla\Registry\Registry $plugin_params): void</methodSignature>
+      <fullMethod>manualPluginSaving(Joomla\Registry\Registry $plugin_params): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Update</package>
+      <className>AE\Library\CustomField\Update\CronJob</className>
+      <methodName>run</methodName>
+      <methodSignature>run(): void</methodSignature>
+      <fullMethod>run(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>getMainPluginParams</methodName>
+      <methodSignature>getMainPluginParams(): Joomla\Registry\Registry</methodSignature>
+      <fullMethod>getMainPluginParams(): Joomla\Registry\Registry</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>getJsonArray</methodName>
+      <methodSignature>getJsonArray(string $json): array</methodSignature>
+      <fullMethod>getJsonArray(string $json): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>getClient</methodName>
+      <methodSignature>getClient(): string</methodSignature>
+      <fullMethod>getClient(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>pathDefined</methodName>
+      <methodSignature>pathDefined(): void</methodSignature>
+      <fullMethod>pathDefined(): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>cleanUrl</methodName>
+      <methodSignature>cleanUrl(string $base_url, ?string $id): string</methodSignature>
+      <fullMethod>cleanUrl(string $base_url, ?string $id): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>toJsonString</methodName>
+      <methodSignature>toJsonString(array $data): string</methodSignature>
+      <fullMethod>toJsonString(array $data): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>flattenAssocArray</methodName>
+      <methodSignature>flattenAssocArray(array $data): array</methodSignature>
+      <fullMethod>flattenAssocArray(array $data): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>realKey</methodName>
+      <methodSignature>realKey(string $key): string</methodSignature>
+      <fullMethod>realKey(string $key): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>realTitle</methodName>
+      <methodSignature>realTitle(string $key): string</methodSignature>
+      <fullMethod>realTitle(string $key): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>isLogActive</methodName>
+      <methodSignature>isLogActive(): bool</methodSignature>
+      <fullMethod>isLogActive(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>isUniqueFieldName</methodName>
+      <methodSignature>isUniqueFieldName(string $name): bool</methodSignature>
+      <fullMethod>isUniqueFieldName(string $name): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>fetchApiData</methodName>
+      <methodSignature>fetchApiData(string $base_url, ?string $id)</methodSignature>
+      <fullMethod>fetchApiData(string $base_url, ?string $id)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>createHttpClient</methodName>
+      <methodSignature>createHttpClient()</methodSignature>
+      <fullMethod>createHttpClient()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>AE\Library\CustomField\Util</package>
+      <className>AE\Library\CustomField\Util\Util</className>
+      <methodName>createFieldModel</methodName>
+      <methodSignature>createFieldModel(): FieldsModelField</methodSignature>
+      <fullMethod>createFieldModel(): FieldsModelField</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+  </methods>
+</crap_result>

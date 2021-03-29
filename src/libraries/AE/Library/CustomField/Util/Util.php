@@ -15,15 +15,18 @@ declare(strict_types=1);
 namespace AE\Library\CustomField\Util;
 
 use AE\Library\CustomField\Core\Constant;
-use AE\Library\CustomField\Helper\Transport;
-use Joomla\CMS\Filesystem\File;
+use AE\Library\CustomField\ErrorHandling\NotFoundException;
+use AE\Library\CustomField\ErrorHandling\UnprocessableEntityException;
+use FieldsModelField;
+use Joomla\CMS\Http\Http;
+use Joomla\CMS\Http\Transport\StreamTransport;
+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\String\PunycodeHelper;
 use Joomla\CMS\Table\Table;
 use Joomla\Registry\Registry;
 use function define;
 use function defined;
-use function explode;
 use function in_array;
 use function json_decode;
 use function json_encode;
@@ -64,34 +67,6 @@ abstract class Util
 		return (new Registry($plugin->params));
 	}
 	
-	/**
-	 * Extract hours part (hh) from time based on format (hh:mm)
-	 *
-	 * @param   string  $time
-	 *
-	 * @return string
-	 *
-	 * @since version
-	 */
-	public static function extractHourFromTime(string $time): string
-	{
-		return explode(':', $time)[0] ?? '00';
-	}
-	
-	/**
-	 * Extract minutes part (mm) from time based on format (hh:mm)
-	 *
-	 * @param   string  $time
-	 *
-	 * @return string
-	 *
-	 * @since version
-	 */
-	public static function extractMinuteFromTime(string $time): string
-	{
-		return explode(':', $time)[1] ?? '00';
-	}
-	
 	
 	/**
 	 * Formatting the received message in JSon mode.
@@ -106,80 +81,6 @@ abstract class Util
 	public static function getJsonArray(string $json): array
 	{
 		return (array) json_decode($json, true);
-	}
-	
-	/**
-	 * Return a field from an array in a text zone.
-	 *
-	 * @param   array   $array  An array
-	 * @param   string  $field  A field name
-	 *
-	 * @return string The value of the field
-	 */
-	public static function getOneField(array $array, string $field): string
-	{
-		return $array[$field] ?? '';
-	}
-	
-	/**
-	 * Returns the elements of an array in a repeatable field.
-	 *
-	 * @param   array   $array  An array
-	 * @param   string  $field  A field
-	 * @param   string  $name   A name
-	 *
-	 * @return string
-	 */
-	public static function getRepeat(array $array, string $field, string $name): string
-	{
-		$ix      = 0;
-		$results = [];
-		
-		foreach ($array as $elem)
-		{
-			$item                                  = [];
-			$item[$name]                           = $elem;
-			$results[$field . '-repeatable' . $ix] = $item;
-			++$ix;
-		}
-		
-		return (string) json_encode($results);
-	}
-	
-	/**
-	 * Copy cli script from plugin folder to real joomla cli folder
-	 *
-	 * @return bool True on success
-	 * @since version
-	 */
-	public static function copyCliScript(): bool
-	{
-		// can be used by a real cronjob scheduler
-		$sourceCliScriptFileName =
-			JPATH_PLUGINS
-			. DIRECTORY_SEPARATOR
-			. 'system'
-			. DIRECTORY_SEPARATOR
-			. 'updatecf'
-			. DIRECTORY_SEPARATOR
-			. 'cli'
-			. DIRECTORY_SEPARATOR
-			. 'updatecf-cli.php';
-		
-		// destination folder
-		$destinationCliScriptFileName =
-			JPATH_ROOT
-			. DIRECTORY_SEPARATOR
-			. 'cli'
-			. DIRECTORY_SEPARATOR
-			. 'updatecf-cli.php';
-		
-		// copy joomla cli application script from this plugin cli folder
-		// to the real joomla default cli folder
-		return File::copy(
-			$sourceCliScriptFileName,
-			$destinationCliScriptFileName
-		);
 	}
 	
 	/**
@@ -298,7 +199,7 @@ abstract class Util
 	 */
 	public static function isLogActive(): bool
 	{
-		return (1 === (int) self::getMainPluginParams()->get('log'));
+		return (((int) self::getMainPluginParams()->get('log')) === 1);
 	}
 	
 	/**
@@ -331,8 +232,8 @@ abstract class Util
 	 * @param   string       $base_url
 	 * @param   string|null  $id
 	 *
-	 * @return string|boolean json response on success false on error
-	 *
+	 * @return string json response on success false on error
+	 * @throws \AE\Library\CustomField\ErrorHandling\NotFoundException|\AE\Library\CustomField\ErrorHandling\UnprocessableEntityException
 	 * @since version
 	 */
 	public static function fetchApiData(string $base_url, ?string $id = null)
@@ -340,21 +241,79 @@ abstract class Util
 		// 1. GET request to fetch url content
 		$url = Util::cleanUrl($base_url, $id);
 		
-		$content_response = Transport::getCurlContent($url);
+		$http = self::createHttpClient();
+		
+		$get_request_headers = [
+			'Content-Type' => 'application/json',
+		];
+		
+		$content_response = $http->get($url, $get_request_headers);
 		
 		// 2. Try to decode json response to assoc array
-		if (!in_array($content_response->getCode(), [Constant::HTTP_OK, Constant::HTTP_FOUND], true))
+		if (!in_array((int) $content_response->code, [Constant::HTTP_OK, Constant::HTTP_FOUND], true))
 		{
-			return false;
+			throw new NotFoundException();
 		}
 		
-		$json_response = $content_response->getBody() ?? '';
+		$json_response = $content_response->body ?? '';
 		
 		if (empty($json_response))
 		{
-			return false;
+			throw new UnprocessableEntityException();
 		}
 		
 		return $json_response;
+	}
+	
+	/**
+	 * Create Http Client instance and return it
+	 *
+	 * @return \Joomla\CMS\Http\Http
+	 *
+	 * @since version
+	 */
+	private static function createHttpClient()
+	{
+		$http_options = new Registry([]);
+		
+		$transport_options = new Registry([
+			'ssl' => [
+				'verify_peer'       => false,
+				'verify_peer_name'  => false,
+				'allow_self_signed' => true,
+			],
+		]);
+		
+		$transport = new StreamTransport(
+			$transport_options);
+		
+		return (new Http($http_options, $transport));
+	}
+	
+	/**
+	 * Create Field Model
+	 * @return \FieldsModelField
+	 *
+	 * @since version
+	 */
+	public static function createFieldModel(): FieldsModelField
+	{
+		//quick fix due to warning
+		defined('JPATH_COMPONENT') || define('JPATH_COMPONENT', JPATH_BASE . '/components/com_fields');
+		
+		BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR
+			. DIRECTORY_SEPARATOR
+			. 'components'
+			. DIRECTORY_SEPARATOR
+			. 'com_fields'
+			. DIRECTORY_SEPARATOR
+			. 'models'
+		);
+		
+		/**
+		 * @var \FieldsModelField $model
+		 */
+		return BaseDatabaseModel::getInstance('Field', 'FieldsModel', ['ignore_request' => true]);
+		
 	}
 }

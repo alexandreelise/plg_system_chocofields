@@ -50,43 +50,6 @@
 						default="13219"
 				/>
 				<field
-						name="dynamic_mapping"
-						type="subform"
-						label="PLG_SYSTEM_UPDATECF_DYNAMIC_MAPPING_LABEL"
-						description="PLG_SYSTEM_UPDATECF_DYNAMIC_MAPPING_DESCRIPTION"
-						multiple="true"
-						min="0"
-						max="1000"
-						filter="subform"
-						default=""
-				>
-					<form>
-						<fields name="mapping">
-							<field
-									name="local_field"
-									type="text"
-									label="PLG_SYSTEM_UPDATECF_LOCAL_FIELD_LABEL"
-									description="PLG_SYSTEM_UPDATECF_LOCAL_FIELD_DESCRIPTION"
-									filter="string"
-									size="255"
-									maxlength="255"
-									default=""
-							/>
-							<field
-									name="remote_field"
-									type="text"
-									label="PLG_SYSTEM_UPDATECF_REMOTE_FIELD_LABEL"
-									description="PLG_SYSTEM_UPDATECF_REMOTE_FIELD_DESCRIPTION"
-									filter="string"
-									size="255"
-									maxlength="255"
-									default=""
-							/>
-						</fields>
-					</form>
-				</field>
-
-				<field
 						name="categories"
 						type="category"
 						multiple="true"
@@ -117,8 +80,4 @@
 			</fieldset>
 		</fields>
 	</config>
-	<updateservers>
-		<server type="extension" priority="1" name="plg_system_updatecf">http://localhost:8000/updates/2-0-0.xml
-		</server>
-	</updateservers>
 </extension>

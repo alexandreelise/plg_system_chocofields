@@ -24,27 +24,42 @@
       "homepage": "https://alexandre-elise.fr"
     }
   ],
+  "prefer-stable": true,
   "config": {
     "optimize-autoloader": true,
-    "apcu-autoloader": true
+    "apcu-autoloader": true,
+    "prefer-dist": true,
+    "sort-packages": true,
+    "classmap-authoritative": true,
+    "platform": {
+      "php": "7.2.5"
+    }
   },
   "autoload": {
+    "exclude-from-classmap": [
+      "**/Tests/",
+      "/tests/",
+      "/test/"
+    ],
     "psr-4": {
       "AE\\Library\\CustomField\\": "src/libraries/AE/Library/CustomField/"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "AE\\Tests\\": "tests/AE/Tests/"
-    }
-  },
   "require": {
     "php": ">=7.2",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-simplexml": "*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
-    "phpunit/phpunit": "^9.2",
-    "phpdocumentor/phpdocumentor": "^v2.9.1"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "friendsofphp/php-cs-fixer": "~2.12",
+    "joomla/cms-coding-standards": "~2.0.0-alpha2@dev",
+    "joomla/coding-standards": "~3.0@dev",
+    "pdepend/pdepend": "^2.5.2",
+    "phpmd/phpmd": "^3.0@dev",
+    "squizlabs/php_codesniffer": "~3.0",
+    "phpunit/phpunit": "9.3.6",
+    "symfony/phpunit-bridge": "5.2"
   }
 }

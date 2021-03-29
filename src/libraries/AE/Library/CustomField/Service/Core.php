@@ -63,9 +63,6 @@ abstract class Core
 				)
 			);
 		
-		$joomlaVersion = new Version();
-		$majorVersion  = (int) substr($joomlaVersion->getShortVersion(), 0, 1);
-		
 		JLoader::register('ContentModelArticles',
 			JPATH_SITE
 			. DIRECTORY_SEPARATOR
@@ -79,10 +76,6 @@ abstract class Core
 		);
 		$articles = BaseDatabaseModel::getInstance('Articles', 'ContentModel', ['ignore_request' => true]);
 		
-		if ($majorVersion >= Constant::JOOMLA_4)
-		{
-			$articles = new Joomla\Components\Content\Site\Model\ArticlesModel(['ignore_request' => true]);
-		}
 		
 		if (!isset($articles))
 		{

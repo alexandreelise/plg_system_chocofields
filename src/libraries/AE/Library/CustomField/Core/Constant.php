@@ -15,6 +15,8 @@ declare(strict_types=1);
 namespace AE\Library\CustomField\Core;
 
 use function defined;
+use function dirname;
+use const DIRECTORY_SEPARATOR;
 
 defined('_JEXEC') or die;
 
@@ -42,10 +44,16 @@ abstract class Constant
 	public const HTTP_FOUND = 302;
 	
 	/**
-	 * Used to detect if the Joomla major version is 4 or more.
+	 * Where the cached api file is stored
+	 * @return string
 	 *
-	 * @var int
+	 * @since version
 	 */
-	public const JOOMLA_4 = 4;
-	
+	public static function getDataDirectory(): string
+	{
+		return dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))))
+			. DIRECTORY_SEPARATOR
+			. 'data'
+			. DIRECTORY_SEPARATOR;
+	}
 }

@@ -1,0 +1,58 @@
+
+##teamcity[testCount count='10' flowId='1304323']
+
+##teamcity[testSuiteStarted name='library-ae-customfield' flowId='1304323']
+
+##teamcity[testSuiteStarted name='AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest' flowId='1304323']
+
+##teamcity[testStarted name='test__invoke_with_integer_value' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_integer_value' flowId='1304323']
+
+##teamcity[testFinished name='test__invoke_with_integer_value' duration='3' flowId='1304323']
+
+##teamcity[testStarted name='test__invoke_with_text_value_with_more_than_255_chars_and_less_than_400_chars' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_text_value_with_more_than_255_chars_and_less_than_400_chars' flowId='1304323']
+
+##teamcity[testFinished name='test__invoke_with_text_value_with_more_than_255_chars_and_less_than_400_chars' duration='1' flowId='1304323']
+
+##teamcity[testStarted name='test__invoke_with_flatten_string_key_with_numeric_part' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_flatten_string_key_with_numeric_part' flowId='1304323']
+
+##teamcity[testFinished name='test__invoke_with_flatten_string_key_with_numeric_part' duration='1' flowId='1304323']
+
+##teamcity[testStarted name='test__invoke_with_float_value' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_float_value' flowId='1304323']
+
+##teamcity[testFinished name='test__invoke_with_float_value' duration='1' flowId='1304323']
+
+##teamcity[testStarted name='test__invoke_with_text_value_with_less_than_255_chars' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_text_value_with_less_than_255_chars' flowId='1304323']
+
+##teamcity[testFinished name='test__invoke_with_text_value_with_less_than_255_chars' duration='1' flowId='1304323']
+
+##teamcity[testStarted name='test__invoke_with_text_value_with_more_than_400_chars' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicCustomFieldInferenceTest.php::\AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_text_value_with_more_than_400_chars' flowId='1304323']
+
+##teamcity[testFinished name='test__invoke_with_text_value_with_more_than_400_chars' duration='1' flowId='1304323']
+
+##teamcity[testSuiteFinished name='AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest' flowId='1304323']
+
+##teamcity[testSuiteStarted name='AE\Library\CustomField\Helper\Tests\DynamicMappingTest' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicMappingTest.php::\AE\Library\CustomField\Helper\Tests\DynamicMappingTest' flowId='1304323']
+
+##teamcity[testStarted name='testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Helper/Tests/DynamicMappingTest.php::\AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray' flowId='1304323']
+
+##teamcity[testFinished name='testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray' duration='41444' flowId='1304323']
+
+##teamcity[testSuiteFinished name='AE\Library\CustomField\Helper\Tests\DynamicMappingTest' flowId='1304323']
+
+##teamcity[testSuiteStarted name='AE\Library\CustomField\Util\Tests\UtilTest' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Util/Tests/UtilTest.php::\AE\Library\CustomField\Util\Tests\UtilTest' flowId='1304323']
+
+##teamcity[testStarted name='testGetJsonArrayWithCachedApiJsonFile' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Util/Tests/UtilTest.php::\AE\Library\CustomField\Util\Tests\UtilTest::testGetJsonArrayWithCachedApiJsonFile' flowId='1304323']
+
+##teamcity[testFinished name='testGetJsonArrayWithCachedApiJsonFile' duration='1' flowId='1304323']
+
+##teamcity[testStarted name='testFlattenAssocArrayReturnsValidData' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Util/Tests/UtilTest.php::\AE\Library\CustomField\Util\Tests\UtilTest::testFlattenAssocArrayReturnsValidData' flowId='1304323']
+
+##teamcity[testFinished name='testFlattenAssocArrayReturnsValidData' duration='1' flowId='1304323']
+
+##teamcity[testStarted name='testFlatten5LevelsDeepAssocArrayReturnsValidData' locationHint='php_qn:///home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField/Util/Tests/UtilTest.php::\AE\Library\CustomField\Util\Tests\UtilTest::testFlatten5LevelsDeepAssocArrayReturnsValidData' flowId='1304323']
+
+##teamcity[testFinished name='testFlatten5LevelsDeepAssocArrayReturnsValidData' duration='1' flowId='1304323']
+
+##teamcity[testSuiteFinished name='AE\Library\CustomField\Util\Tests\UtilTest' flowId='1304323']
+
+##teamcity[testSuiteFinished name='library-ae-customfield' flowId='1304323']
