@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
-  <build time="Mon Mar 29 14:54:10 UTC 2021" phpunit="9.3.6" coverage="9.2.5-12-gad06980">
+  <build time="Wed Mar 31 20:55:21 UTC 2021" phpunit="9.3.6" coverage="9.2.5-12-gad06980">
     <runtime name="PHP" version="7.4.16" url="https://secure.php.net/"/>
     <driver name="xdebug" version="3.0.3"/>
   </build>
-  <project source="/home/alexandree/Common/Extensions/woluweb/updatecf/src/libraries/AE/Library/CustomField">
+  <project source="/home/alexandree/Common/Extensions/woluweb/plg_system_chocofields/src/libraries/AE/Library/CustomField">
     <tests>
       <test name="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_integer_value" size="unknown" result="0" status="PASSED"/>
       <test name="AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInferenceTest::test__invoke_with_text_value_with_more_than_255_chars_and_less_than_400_chars" size="unknown" result="0" status="PASSED"/>
@@ -19,15 +19,15 @@
     </tests>
     <directory name="/">
       <totals>
-        <lines total="1430" comments="524" code="906" executable="266" executed="125" percent="46.99"/>
-        <methods count="32" tested="11" percent="34.38"/>
+        <lines total="1327" comments="544" code="783" executable="207" executed="106" percent="51.21"/>
+        <methods count="33" tested="13" percent="39.39"/>
         <functions count="0" tested="0" percent="0"/>
-        <classes count="13" tested="1" percent="7.69"/>
+        <classes count="13" tested="2" percent="15.38"/>
         <traits count="0" tested="0" percent="0"/>
       </totals>
       <directory name="Core">
         <totals>
-          <lines total="59" comments="34" code="25" executable="4" executed="4" percent="100.00"/>
+          <lines total="61" comments="34" code="27" executable="6" executed="6" percent="100.00"/>
           <methods count="1" tested="1" percent="100.00"/>
           <functions count="0" tested="0" percent="0"/>
           <classes count="1" tested="1" percent="100.00"/>
@@ -35,7 +35,7 @@
         </totals>
         <file name="Constant.php" href="Core/Constant.php.xml">
           <totals>
-            <lines total="59" comments="34" code="25" executable="4" executed="4" percent="100.00"/>
+            <lines total="61" comments="34" code="27" executable="6" executed="6" percent="100.00"/>
             <methods count="1" tested="1" percent="100.00"/>
             <functions count="0" tested="0" percent="0"/>
             <classes count="1" tested="1" percent="100.00"/>
@@ -108,16 +108,25 @@
       </directory>
       <directory name="Helper">
         <totals>
-          <lines total="580" comments="134" code="446" executable="152" executed="107" percent="70.39"/>
+          <lines total="545" comments="159" code="386" executable="123" executed="79" percent="64.23"/>
           <methods count="8" tested="3" percent="37.50"/>
           <functions count="0" tested="0" percent="0"/>
-          <classes count="3" tested="0" percent="0.00"/>
+          <classes count="4" tested="1" percent="25.00"/>
           <traits count="0" tested="0" percent="0"/>
         </totals>
         <file name="Content.php" href="Helper/Content.php.xml">
           <totals>
-            <lines total="162" comments="43" code="119" executable="35" executed="0" percent="0.00"/>
+            <lines total="161" comments="46" code="115" executable="33" executed="0" percent="0.00"/>
             <methods count="3" tested="0" percent="0.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="DataManager.php" href="Helper/DataManager.php.xml">
+          <totals>
+            <lines total="93" comments="26" code="67" executable="19" executed="9" percent="47.37"/>
+            <methods count="1" tested="0" percent="0.00"/>
             <functions count="0" tested="0" percent="0"/>
             <classes count="1" tested="0" percent="0.00"/>
             <traits count="0" tested="0" percent="0"/>
@@ -134,17 +143,17 @@
         </file>
         <file name="DynamicMapping.php" href="Helper/DynamicMapping.php.xml">
           <totals>
-            <lines total="293" comments="63" code="230" executable="82" executed="73" percent="89.02"/>
-            <methods count="4" tested="3" percent="75.00"/>
+            <lines total="166" comments="59" code="107" executable="36" executed="36" percent="100.00"/>
+            <methods count="3" tested="3" percent="100.00"/>
             <functions count="0" tested="0" percent="0"/>
-            <classes count="1" tested="0" percent="0.00"/>
+            <classes count="1" tested="1" percent="100.00"/>
             <traits count="0" tested="0" percent="0"/>
           </totals>
         </file>
       </directory>
       <directory name="Service">
         <totals>
-          <lines total="140" comments="41" code="99" executable="47" executed="0" percent="0.00"/>
+          <lines total="79" comments="43" code="36" executable="10" executed="0" percent="0.00"/>
           <methods count="2" tested="0" percent="0.00"/>
           <functions count="0" tested="0" percent="0"/>
           <classes count="1" tested="0" percent="0.00"/>
@@ -152,7 +161,7 @@
         </totals>
         <file name="Core.php" href="Service/Core.php.xml">
           <totals>
-            <lines total="140" comments="41" code="99" executable="47" executed="0" percent="0.00"/>
+            <lines total="79" comments="43" code="36" executable="10" executed="0" percent="0.00"/>
             <methods count="2" tested="0" percent="0.00"/>
             <functions count="0" tested="0" percent="0"/>
             <classes count="1" tested="0" percent="0.00"/>
@@ -160,45 +169,18 @@
           </totals>
         </file>
       </directory>
-      <directory name="Update">
-        <totals>
-          <lines total="64" comments="32" code="32" executable="2" executed="0" percent="0.00"/>
-          <methods count="1" tested="0" percent="0.00"/>
-          <functions count="0" tested="0" percent="0"/>
-          <classes count="1" tested="0" percent="0.00"/>
-          <traits count="0" tested="0" percent="0"/>
-        </totals>
-        <file name="CronJob.php" href="Update/CronJob.php.xml">
-          <totals>
-            <lines total="36" comments="16" code="20" executable="2" executed="0" percent="0.00"/>
-            <methods count="1" tested="0" percent="0.00"/>
-            <functions count="0" tested="0" percent="0"/>
-            <classes count="1" tested="0" percent="0.00"/>
-            <traits count="0" tested="0" percent="0"/>
-          </totals>
-        </file>
-        <file name="CronJobInterface.php" href="Update/CronJobInterface.php.xml">
-          <totals>
-            <lines total="28" comments="16" code="12" executable="0" executed="0" percent="0"/>
-            <methods count="0" tested="0" percent="0"/>
-            <functions count="0" tested="0" percent="0"/>
-            <classes count="0" tested="0" percent="0"/>
-            <traits count="0" tested="0" percent="0"/>
-          </totals>
-        </file>
-      </directory>
       <directory name="Util">
         <totals>
-          <lines total="319" comments="128" code="191" executable="43" executed="14" percent="32.56"/>
-          <methods count="14" tested="7" percent="50.00"/>
+          <lines total="374" comments="153" code="221" executable="50" executed="21" percent="42.00"/>
+          <methods count="16" tested="9" percent="56.25"/>
           <functions count="0" tested="0" percent="0"/>
           <classes count="1" tested="0" percent="0.00"/>
           <traits count="0" tested="0" percent="0"/>
         </totals>
         <file name="Util.php" href="Util/Util.php.xml">
           <totals>
-            <lines total="319" comments="128" code="191" executable="43" executed="14" percent="32.56"/>
-            <methods count="14" tested="7" percent="50.00"/>
+            <lines total="374" comments="153" code="221" executable="50" executed="21" percent="42.00"/>
+            <methods count="16" tested="9" percent="56.25"/>
             <functions count="0" tested="0" percent="0"/>
             <classes count="1" tested="0" percent="0.00"/>
             <traits count="0" tested="0" percent="0"/>

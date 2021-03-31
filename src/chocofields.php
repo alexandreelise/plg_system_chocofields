@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 /**
- * Woluweb - Update Custom Field project
+ * Woluweb - Update Custom Field project (a.k.a Chocofields)
  * A plugin allowing to populate Joomla Custom Fields from Webservices
  * php version 7.2
  *
- * @package   Updatecf
+ * @package   Chocofields
  * @author    Pascal Leconte <pascal.leconte@conseilgouz.com>
  * @author    Christophe Avonture <christophe@avonture.be>
  * @author    Marc Dechèvre <marc@woluweb.be>
@@ -14,17 +14,15 @@ declare(strict_types=1);
  *
  * @link      https://github.com/woluweb/updatecf
  * @wiki https://github.com/woluweb/updatecf/-/wikis/home
+ *
+ * @link      https://github.com/alexandreelise/plg_system_chocofields
  */
 
 // phpcs:disable PSR1.Files.SideEffects
 
 defined('_JEXEC') or die;
 
-use AE\Library\CustomField\ErrorHandling\NoContentException;
-use AE\Library\CustomField\ErrorHandling\NotFoundException;
-use AE\Library\CustomField\Helper\DynamicMapping;
 use AE\Library\CustomField\Service\Core;
-use Joomla\CMS\Form\Form;
 use Joomla\CMS\Log\Log;
 use Joomla\CMS\Plugin\CMSPlugin;
 
@@ -36,7 +34,7 @@ use Joomla\CMS\Plugin\CMSPlugin;
  * @SuppressWarnings(PHPMD.NPathComplexity)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class PlgSystemUpdatecf extends CMSPlugin
+class PlgSystemChocofields extends CMSPlugin
 {
 	/**
 	 * CMSApplication
@@ -54,9 +52,18 @@ class PlgSystemUpdatecf extends CMSPlugin
 	 */
 	protected $db;
 	
+	/**
+	 * @var bool $autoloadLanguage
+	 */
+	protected $autoloadLanguage = true;
 	
 	/**
-	 * PlgSystemUpdatecf constructor.
+	 * @var object $lastSavedArticle
+	 */
+	private static $lastSavedArticle;
+	
+	/**
+	 * PlgSystemChocofields constructor.
 	 *
 	 * @param          $subject
 	 * @param   array  $config
@@ -65,18 +72,16 @@ class PlgSystemUpdatecf extends CMSPlugin
 	{
 		parent::__construct($subject, $config);
 		
-		$this->autoloadLanguage = true;
-		
 		
 		// If you want to enable this plugin logger
 		if (1 === ((int) $this->params->get('log')))
 		{
 			Log::addLogger(
 				[
-					'text_file' => 'updatecf.trace.log.php',
+					'text_file' => 'chocofields.trace.log.php',
 				],
 				Log::INFO | Log::ERROR,
-				['plg_system_updatecf']
+				['plg_system_chocofields']
 			);
 		}
 		
@@ -98,6 +103,24 @@ class PlgSystemUpdatecf extends CMSPlugin
 	}
 	
 	
+	public function onContentPrepareForm($form, $data)
+	{
+		if (!($form instanceof Joomla\CMS\Form\Form))
+		{
+			return false;
+		}
+		
+		if ($form->getName() === 'com_content.article')
+		{
+			$form->loadFile(__DIR__ . '/forms/external_api.xml', false);
+			
+			return true;
+		}
+		
+		return true;
+	}
+	
+	
 	/**
 	 * Do something before saving any kind of content in the database
 	 *
@@ -114,12 +137,27 @@ class PlgSystemUpdatecf extends CMSPlugin
 		// if not an article do nothing
 		if (in_array($context, ['com_content.article', 'com_content.form'], true))
 		{
-			//execute manual synchronisation when saving an article
-			Core::manualPluginSaving($this->params);
+			self::$lastSavedArticle = $item;
 			
-			return true; // pass to next content plugin
+			//execute manual synchronisation when saving an article
+			Core::manualPluginSaving($item, $this->params);
+			
+			return true;
 		}
 		
-		return true; // pass to next plugin
+		return true;
 	}
+	
+	/**
+	 * Execute manual synchronisation when accessing this url
+	 *
+	 * @return bool
+	 */
+	public function onAjaxCronUpdate()
+	{
+		Core::manualPluginSaving(self::$lastSavedArticle, $this->params);
+		
+		return true;
+	}
+	
 }

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.9" type="plugin" group="system" method="upgrade">
-	<name>PLG_SYSTEM_UPDATECF</name>
-	<author>ConseilGouz</author>
-	<creationDate>2020 June</creationDate>
-	<copyright>(C)2020 ConseilGouz. All rights reserved.</copyright>
+	<name>PLG_SYSTEM_CHOCOFIELDS</name>
+	<author>Alexandre ELISÉ</author>
+	<creationDate>2021-03-30</creationDate>
+	<copyright>Copyright (C) 2009 - 2021 Alexandre ELISÉ. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
-	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>2.0.0</version>
-	<description>PLG_SYSTEM_UPDATECF_XML_DESCRIPTION</description>
+	<authorEmail>contact@alexandre-elise.fr</authorEmail>
+	<authorUrl>https://coderparlerpartager.fr</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_SYSTEM_CHOCOFIELDS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
-	<media folder="media" destination="plg_system_updatecf">
+	<media folder="media" destination="plg_system_chocofields">
 		<folder>css</folder>
+		<folder>data</folder>
 		<folder>js</folder>
 		<folder>images</folder>
 	</media>
 	<files>
-		<filename plugin="updatecf">updatecf.php</filename>
-		<filename>updatecf.xml</filename>
-		<folder>cli</folder>
+		<filename plugin="chocofields">chocofields.php</filename>
+		<filename>chocofields.xml</filename>
+		<folder>layouts</folder>
 		<folder>libraries</folder>
 		<folder>language</folder>
 		<folder>media</folder>
@@ -28,8 +29,8 @@
 			<fieldset name="basic">
 				<field name="base_url"
 					   type="url"
-					   label="PLG_SYSTEM_UPDATECF_BASE_URL_TO_FETCH_LABEL"
-					   description="PLG_SYSTEM_UPDATECF_BASE_URL_TO_FETCH_DESCRIPTION"
+					   label="PLG_SYSTEM_CHOCOFIELDS_BASE_URL_TO_FETCH_LABEL"
+					   description="PLG_SYSTEM_CHOCOFIELDS_BASE_URL_TO_FETCH_DESCRIPTION"
 					   default="https://social.brussels/rest/organisation/"
 					   size="255"
 					   maxlength="255"
@@ -42,11 +43,11 @@
 				<field
 						name="default_resource_id"
 						type="text"
-						label="PLG_SYSTEM_UPDATECF_DEFAULT_RESOURCE_ID_LABEL"
-						description="PLG_SYSTEM_UPDATECF_DEFAULT_RESOURCE_ID_DESCRIPTION"
-						size="255"
-						maxlength="255"
-						filter="alnum"
+						label="PLG_SYSTEM_CHOCOFIELDS_DEFAULT_RESOURCE_ID_LABEL"
+						description="PLG_SYSTEM_CHOCOFIELDS_DEFAULT_RESOURCE_ID_DESCRIPTION"
+						size="10"
+						maxlength="10"
+						filter="uint"
 						default="13219"
 				/>
 				<field
@@ -54,14 +55,14 @@
 						type="category"
 						multiple="true"
 						extension="com_content"
-						label="PLG_SYSTEM_UPDATECF_CATEGORIES_LABEL"
-						description="PLG_SYSTEM_UPDATECF_CATEGORIES_DESCRIPTION"
+						label="PLG_SYSTEM_CHOCOFIELDS_CATEGORIES_LABEL"
+						description="PLG_SYSTEM_CHOCOFIELDS_CATEGORIES_DESCRIPTION"
 				/>
 
 				<field name="field_context"
 					   type="text"
-					   label="PLG_SYSTEM_UPDATECF_FIELD_CONTEXT_LABEL"
-					   description="PLG_SYSTEM_UPDATECF_FIELD_CONTEXT_LABEL"
+					   label="PLG_SYSTEM_CHOCOFIELDS_FIELD_CONTEXT_LABEL"
+					   description="PLG_SYSTEM_CHOCOFIELDS_FIELD_CONTEXT_LABEL"
 					   default="com_content.article"
 					   hint="com_content.article"
 					   filter="cmd"
@@ -69,8 +70,8 @@
 
 				<field name="log" type="radio"
 					   default="0"
-					   label="PLG_SYSTEM_UPDATECF_ACTION_LOG_LABEL"
-					   description="PLG_SYSTEM_UPDATECF_ACTION_LOG_DESCRIPTION"
+					   label="PLG_SYSTEM_CHOCOFIELDS_ACTION_LOG_LABEL"
+					   description="PLG_SYSTEM_CHOCOFIELDS_ACTION_LOG_DESCRIPTION"
 					   class="btn-group btn-group-yesno"
 					   filter="uint"
 				>

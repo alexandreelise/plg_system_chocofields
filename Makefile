@@ -17,14 +17,14 @@ gen: ./src ## Create extension zip file
 	&& cd ..
 
 composer.lock: composer.json      ## create composer.lock file if not exists
-	php composer.phar update
+	composer update
 
 vendor: composer.lock             ## Create vendor directory if not exists
-	php composer.phar install
+	composer install
 
 install: vendor                   ## Install extension dependencies using composer.phar
 
-test: install ./vendor/bin/phpunit ./joomla3x ./src ./tests ./bootstrap.php ./phpunit.xml ## Extension unit tests using Joomla! 3
+test: ./vendor/bin/phpunit ./joomla3x ./src ./tests ./bootstrap.php ./phpunit.xml ## Extension unit tests using Joomla! 3
 	./vendor/bin/phpunit --testdox --configuration ./phpunit.xml
 
 all: test gen

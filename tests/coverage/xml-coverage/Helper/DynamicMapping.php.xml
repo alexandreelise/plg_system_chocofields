@@ -2,93 +2,110 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="DynamicMapping.php" path="/Helper">
     <totals>
-      <lines total="293" comments="63" code="230" executable="82" executed="73" percent="89.02"/>
-      <methods count="4" tested="3" percent="75.00"/>
+      <lines total="166" comments="59" code="107" executable="36" executed="36" percent="100.00"/>
+      <methods count="3" tested="3" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="0" percent="0.00"/>
+      <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="AE\Library\CustomField\Helper\DynamicMapping" start="40" executable="82" executed="73" crap="18.43">
+    <class name="AE\Library\CustomField\Helper\DynamicMapping" start="40" executable="36" executed="36" crap="5">
       <namespace name="AE\Library\CustomField\Helper"/>
-      <method name="prefillRemoteFields" signature="prefillRemoteFields(string $base_url, ?string $id): bool" start="57" end="109" crap="19.11" executable="20" executed="11" coverage="55"/>
-      <method name="generateCustomFields" signature="generateCustomFields(array $flatten_json_array): bool" start="119" end="164" crap="3" executable="18" executed="18" coverage="100"/>
-      <method name="createFieldData" signature="createFieldData(string $context, string $title, string $name, string $type, array $params, array $fieldparams, $default_value): array" start="182" end="207" crap="1" executable="14" executed="14" coverage="100"/>
-      <method name="generateInitialFields" signature="generateInitialFields()" start="215" end="291" crap="4" executable="30" executed="30" coverage="100"/>
+      <method name="prefillRemoteFields" signature="prefillRemoteFields(int $categoryId, int $articleId, string $baseUrl, ?int $resourceId): bool" start="59" end="66" crap="1" executable="4" executed="4" coverage="100"/>
+      <method name="generateCustomFields" signature="generateCustomFields(array $flattenJsonArray): bool" start="76" end="121" crap="3" executable="18" executed="18" coverage="100"/>
+      <method name="createFieldData" signature="createFieldData(string $context, string $title, string $name, string $type, array $params, array $fieldparams, $default_value): array" start="139" end="164" crap="1" executable="14" executed="14" coverage="100"/>
     </class>
     <coverage>
-      <line nr="60">
+      <line nr="61">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
       <line nr="63">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
+      <line nr="64">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
       <line nr="65">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="68">
+      <line nr="78">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="70">
+      <line nr="80">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="72">
+      <line nr="82">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="94">
+      <line nr="84">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="85">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="87">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="89">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="90">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="93">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="95">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
+      <line nr="98">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
       <line nr="99">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="101">
+      <line nr="102">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="106">
+      <line nr="104">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="108">
+      <line nr="115">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="121">
+      <line nr="116">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="123">
+      <line nr="117">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="125">
+      <line nr="120">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="127">
+      <line nr="149">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="128">
+      <line nr="150">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="130">
+      <line nr="151">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="132">
+      <line nr="152">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="133">
+      <line nr="153">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="136">
+      <line nr="154">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="138">
+      <line nr="155">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="141">
+      <line nr="156">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
-      <line nr="142">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="145">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="147">
+      <line nr="157">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
       <line nr="158">
@@ -100,139 +117,10 @@
       <line nr="160">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
+      <line nr="161">
+        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
+      </line>
       <line nr="163">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="192">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="193">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="194">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="195">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="196">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="197">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="198">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="199">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="200">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="201">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="202">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="203">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="204">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="206">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="217">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="219">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="221">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="224">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="225">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="227">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="228">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="229">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="230">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="231">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="233">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="244">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="245">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="248">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="253">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="254">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="256">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="257">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="258">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="259">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="260">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="262">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="276">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="277">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="280">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="281">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="284">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="285">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="288">
-        <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
-      </line>
-      <line nr="290">
         <covered by="AE\Library\CustomField\Helper\Tests\DynamicMappingTest::testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray"/>
       </line>
     </coverage>
@@ -474,7 +362,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="44">
-        <token name="T_DOC_COMMENT">	 * Prefill dynamic mapping fields based of fetched data from base_url</token>
+        <token name="T_DOC_COMMENT">	 * Prefill dynamic mapping fields based of fetched data from baseUrl</token>
       </line>
       <line no="45">
         <token name="T_DOC_COMMENT">	 *</token>
@@ -492,27 +380,33 @@
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
       <line no="50">
-        <token name="T_DOC_COMMENT">	 * @param   string       $base_url</token>
+        <token name="T_DOC_COMMENT">	 * @param   int       $categoryId</token>
       </line>
       <line no="51">
-        <token name="T_DOC_COMMENT">	 * @param   string|null  $id</token>
+        <token name="T_DOC_COMMENT">	 * @param   int       $articleId</token>
       </line>
       <line no="52">
-        <token name="T_DOC_COMMENT">	 *</token>
+        <token name="T_DOC_COMMENT">	 * @param   string    $baseUrl</token>
       </line>
       <line no="53">
-        <token name="T_DOC_COMMENT">	 * @return bool true on success</token>
+        <token name="T_DOC_COMMENT">	 * @param   int|null  $resourceId</token>
       </line>
       <line no="54">
-        <token name="T_DOC_COMMENT">	 * @throws \AE\Library\CustomField\ErrorHandling\NoContentException|\AE\Library\CustomField\ErrorHandling\NotFoundException</token>
+        <token name="T_DOC_COMMENT">	 *</token>
       </line>
       <line no="55">
-        <token name="T_DOC_COMMENT">	 * @since version</token>
+        <token name="T_DOC_COMMENT">	 * @return bool true on success</token>
       </line>
       <line no="56">
-        <token name="T_DOC_COMMENT">	 */</token>
+        <token name="T_DOC_COMMENT">	 * @throws \AE\Library\CustomField\ErrorHandling\UnprocessableEntityException</token>
       </line>
       <line no="57">
+        <token name="T_DOC_COMMENT">	 * @since version</token>
+      </line>
+      <line no="58">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="59">
         <token name="T_WHITESPACE">	</token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -522,15 +416,25 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">prefillRemoteFields</token>
         <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$categoryId</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">int</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$articleId</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">string</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$base_url</token>
+        <token name="T_VARIABLE">$baseUrl</token>
         <token name="T_COMMA">,</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_QUESTION_MARK">?</token>
-        <token name="T_STRING">string</token>
+        <token name="T_STRING">int</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$id</token>
+        <token name="T_VARIABLE">$resourceId</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
@@ -540,355 +444,39 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">bool</token>
       </line>
-      <line no="58">
+      <line no="60">
         <token name="T_WHITESPACE">	</token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="59">
+      <line no="61">
         <token name="T_WHITESPACE">		</token>
-        <token name="T_COMMENT">// cache api response</token>
-      </line>
-      <line no="60">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$path</token>
+        <token name="T_VARIABLE">$jsonArray</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Constant</token>
+        <token name="T_STRING">DataManager</token>
         <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">getDataDirectory</token>
+        <token name="T_STRING">createIfNotExistsArticleJsonApiFile</token>
         <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$categoryId</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$articleId</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$baseUrl</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$resourceId</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="61">
-        <token name="T_WHITESPACE">		</token>
       </line>
       <line no="62">
         <token name="T_WHITESPACE">		</token>
-        <token name="T_COMMENT">// extension</token>
       </line>
       <line no="63">
         <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$extension</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'.json'</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="64">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="65">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$path</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOT">.</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'api'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOT">.</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$extension</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="66">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="67">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="68">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="69">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="70">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_IF">if</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">file_exists</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">filesize</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_GT">&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_LNUMBER">1</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="71">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="72">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">file_get_contents</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="73">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="74">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_ELSEIF">elseif</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_EXCLAMATION_MARK">!</token>
-        <token name="T_STRING">file_exists</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_OR">||</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">filesize</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_LT">&lt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_LNUMBER">1</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="75">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="76">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_TRY">try</token>
-      </line>
-      <line no="77">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="78">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Util</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">fetchApiData</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$base_url</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$id</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="79">
-        <token name="T_WHITESPACE">				</token>
-      </line>
-      <line no="80">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_STRING">File</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">write</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$filename</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">true</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="81">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="82">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CATCH">catch</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">UnprocessableEntityException</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$noContentException</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="83">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="84">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="85">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="86">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CATCH">catch</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">NotFoundException</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$notFoundException</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="87">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="88">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="89">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="90">
-        <token name="T_WHITESPACE">			</token>
-      </line>
-      <line no="91">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="92">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="93">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="94">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_IF">if</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_EMPTY">empty</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="95">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="96">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_THROW">throw</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_NEW">new</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">UnprocessableEntityException</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="97">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="98">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="99">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$json_array</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Util</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">getJsonArray</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$json_response</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="100">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="101">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_IF">if</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_EMPTY">empty</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$json_array</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="102">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="103">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_THROW">throw</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_NEW">new</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">UnprocessableEntityException</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="104">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="105">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="106">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$remote_data_structure</token>
+        <token name="T_VARIABLE">$remoteDataStructure</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
@@ -896,68 +484,64 @@
         <token name="T_DOUBLE_COLON">::</token>
         <token name="T_STRING">flattenAssocArray</token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$json_array</token>
+        <token name="T_VARIABLE">$jsonArray</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="107">
+      <line no="64">
         <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="108">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_RETURN">return</token>
+        <token name="T_VARIABLE">$resultGenerated</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">self</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">generateInitialFields</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_OR">||</token>
+        <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">self</token>
         <token name="T_DOUBLE_COLON">::</token>
         <token name="T_STRING">generateCustomFields</token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$remote_data_structure</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_VARIABLE">$remoteDataStructure</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="109">
+      <line no="65">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$resultGenerated</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="66">
         <token name="T_WHITESPACE">	</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="110">
+      <line no="67">
         <token name="T_WHITESPACE">	</token>
       </line>
-      <line no="111">
+      <line no="68">
         <token name="T_WHITESPACE">	</token>
       </line>
-      <line no="112">
+      <line no="69">
         <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="113">
-        <token name="T_DOC_COMMENT">	 * @param   array  $flatten_json_array</token>
+      <line no="70">
+        <token name="T_DOC_COMMENT">	 * @param   array  $flattenJsonArray</token>
       </line>
-      <line no="114">
+      <line no="71">
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
-      <line no="115">
+      <line no="72">
         <token name="T_DOC_COMMENT">	 * @return bool</token>
       </line>
-      <line no="116">
+      <line no="73">
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
-      <line no="117">
+      <line no="74">
         <token name="T_DOC_COMMENT">	 * @since version</token>
       </line>
-      <line no="118">
+      <line no="75">
         <token name="T_DOC_COMMENT">	 */</token>
       </line>
-      <line no="119">
+      <line no="76">
         <token name="T_WHITESPACE">	</token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -969,7 +553,7 @@
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_ARRAY">array</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$flatten_json_array</token>
+        <token name="T_VARIABLE">$flattenJsonArray</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
@@ -980,11 +564,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">bool</token>
       </line>
-      <line no="120">
+      <line no="77">
         <token name="T_WHITESPACE">	</token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="121">
+      <line no="78">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$plugin_params</token>
         <token name="T_WHITESPACE"> </token>
@@ -997,10 +581,10 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="122">
+      <line no="79">
         <token name="T_WHITESPACE">		</token>
       </line>
-      <line no="123">
+      <line no="80">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$model</token>
         <token name="T_WHITESPACE"> </token>
@@ -1013,10 +597,10 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="124">
+      <line no="81">
         <token name="T_WHITESPACE">		</token>
       </line>
-      <line no="125">
+      <line no="82">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$context</token>
         <token name="T_WHITESPACE"> </token>
@@ -1036,10 +620,10 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="126">
+      <line no="83">
         <token name="T_WHITESPACE">		</token>
       </line>
-      <line no="127">
+      <line no="84">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$output</token>
         <token name="T_WHITESPACE"> </token>
@@ -1048,7 +632,7 @@
         <token name="T_STRING">false</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="128">
+      <line no="85">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$infer</token>
         <token name="T_WHITESPACE">  </token>
@@ -1063,15 +647,15 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="129">
+      <line no="86">
         <token name="T_WHITESPACE">		</token>
       </line>
-      <line no="130">
+      <line no="87">
         <token name="T_WHITESPACE">		</token>
         <token name="T_FOREACH">foreach</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$flatten_json_array</token>
+        <token name="T_VARIABLE">$flattenJsonArray</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_AS">as</token>
         <token name="T_WHITESPACE"> </token>
@@ -1082,11 +666,11 @@
         <token name="T_VARIABLE">$value</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="131">
+      <line no="88">
         <token name="T_WHITESPACE">		</token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="132">
+      <line no="89">
         <token name="T_WHITESPACE">			</token>
         <token name="T_VARIABLE">$title</token>
         <token name="T_WHITESPACE"> </token>
@@ -1100,7 +684,7 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="133">
+      <line no="90">
         <token name="T_WHITESPACE">			</token>
         <token name="T_VARIABLE">$name</token>
         <token name="T_WHITESPACE">  </token>
@@ -1114,14 +698,14 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="134">
+      <line no="91">
         <token name="T_WHITESPACE">			</token>
       </line>
-      <line no="135">
+      <line no="92">
         <token name="T_WHITESPACE">			</token>
         <token name="T_COMMENT">// process next field if already created</token>
       </line>
-      <line no="136">
+      <line no="93">
         <token name="T_WHITESPACE">			</token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
@@ -1138,23 +722,23 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="137">
+      <line no="94">
         <token name="T_WHITESPACE">			</token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="138">
+      <line no="95">
         <token name="T_WHITESPACE">				</token>
         <token name="T_CONTINUE">continue</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="139">
+      <line no="96">
         <token name="T_WHITESPACE">			</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="140">
+      <line no="97">
         <token name="T_WHITESPACE">			</token>
       </line>
-      <line no="141">
+      <line no="98">
         <token name="T_WHITESPACE">			</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_WHITESPACE"> </token>
@@ -1165,22 +749,22 @@
         <token name="T_STRING">createFieldData</token>
         <token name="T_OPEN_BRACKET">(</token>
       </line>
-      <line no="142">
+      <line no="99">
         <token name="T_WHITESPACE">				</token>
         <token name="T_VARIABLE">$context</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="143">
+      <line no="100">
         <token name="T_WHITESPACE">				</token>
         <token name="T_VARIABLE">$title</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="144">
+      <line no="101">
         <token name="T_WHITESPACE">				</token>
         <token name="T_VARIABLE">$name</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="145">
+      <line no="102">
         <token name="T_WHITESPACE">				</token>
         <token name="T_VARIABLE">$infer</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -1193,11 +777,11 @@
         <token name="T_STRING">inferredFieldType</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="146">
+      <line no="103">
         <token name="T_WHITESPACE">				</token>
         <token name="T_OPEN_SQUARE">[</token>
       </line>
-      <line no="147">
+      <line no="104">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"hint"</token>
         <token name="T_WHITESPACE">               </token>
@@ -1206,7 +790,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="148">
+      <line no="105">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"class"</token>
         <token name="T_WHITESPACE">              </token>
@@ -1215,7 +799,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="149">
+      <line no="106">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"label_class"</token>
         <token name="T_WHITESPACE">        </token>
@@ -1224,7 +808,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="150">
+      <line no="107">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"show_on"</token>
         <token name="T_WHITESPACE">            </token>
@@ -1233,7 +817,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="151">
+      <line no="108">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"render_class"</token>
         <token name="T_WHITESPACE">       </token>
@@ -1242,7 +826,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="152">
+      <line no="109">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"showlabel"</token>
         <token name="T_WHITESPACE">          </token>
@@ -1251,7 +835,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="153">
+      <line no="110">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"label_render_class"</token>
         <token name="T_WHITESPACE"> </token>
@@ -1260,7 +844,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="154">
+      <line no="111">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"display"</token>
         <token name="T_WHITESPACE">            </token>
@@ -1269,7 +853,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">"2"</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="155">
+      <line no="112">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"layout"</token>
         <token name="T_WHITESPACE">             </token>
@@ -1278,7 +862,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="156">
+      <line no="113">
         <token name="T_WHITESPACE">					</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">"display_readonly"</token>
         <token name="T_WHITESPACE">   </token>
@@ -1287,12 +871,12 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="157">
+      <line no="114">
         <token name="T_WHITESPACE">				</token>
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="158">
+      <line no="115">
         <token name="T_WHITESPACE">				</token>
         <token name="T_OPEN_SQUARE">[</token>
         <token name="T_CONSTANT_ENCAPSED_STRING">'filter'</token>
@@ -1311,13 +895,13 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="159">
+      <line no="116">
         <token name="T_WHITESPACE">				</token>
         <token name="T_STRING">null</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="160">
+      <line no="117">
         <token name="T_WHITESPACE">			</token>
         <token name="T_VARIABLE">$output</token>
         <token name="T_WHITESPACE"> </token>
@@ -1331,77 +915,77 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="161">
+      <line no="118">
         <token name="T_WHITESPACE">		</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="162">
+      <line no="119">
         <token name="T_WHITESPACE">		</token>
       </line>
-      <line no="163">
+      <line no="120">
         <token name="T_WHITESPACE">		</token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$output</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="164">
+      <line no="121">
         <token name="T_WHITESPACE">	</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="165">
+      <line no="122">
         <token name="T_WHITESPACE">	</token>
       </line>
-      <line no="166">
+      <line no="123">
         <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="167">
+      <line no="124">
         <token name="T_DOC_COMMENT">	 * Data representing a custom field</token>
       </line>
-      <line no="168">
+      <line no="125">
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
-      <line no="169">
+      <line no="126">
         <token name="T_DOC_COMMENT">	 * @param   string  $context</token>
       </line>
-      <line no="170">
+      <line no="127">
         <token name="T_DOC_COMMENT">	 * @param   string  $title</token>
       </line>
-      <line no="171">
+      <line no="128">
         <token name="T_DOC_COMMENT">	 * @param   string  $name</token>
       </line>
-      <line no="172">
+      <line no="129">
         <token name="T_DOC_COMMENT">	 * @param   string  $type</token>
       </line>
-      <line no="173">
+      <line no="130">
         <token name="T_DOC_COMMENT">	 * @param   array   $params</token>
       </line>
-      <line no="174">
+      <line no="131">
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
-      <line no="175">
+      <line no="132">
         <token name="T_DOC_COMMENT">	 * @param   array   $fieldparams</token>
       </line>
-      <line no="176">
+      <line no="133">
         <token name="T_DOC_COMMENT">	 * @param   null    $default_value</token>
       </line>
-      <line no="177">
+      <line no="134">
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
-      <line no="178">
+      <line no="135">
         <token name="T_DOC_COMMENT">	 * @return array</token>
       </line>
-      <line no="179">
+      <line no="136">
         <token name="T_DOC_COMMENT">	 *</token>
       </line>
-      <line no="180">
+      <line no="137">
         <token name="T_DOC_COMMENT">	 * @since version</token>
       </line>
-      <line no="181">
+      <line no="138">
         <token name="T_DOC_COMMENT">	 */</token>
       </line>
-      <line no="182">
+      <line no="139">
         <token name="T_WHITESPACE">	</token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
@@ -1412,35 +996,35 @@
         <token name="T_STRING">createFieldData</token>
         <token name="T_OPEN_BRACKET">(</token>
       </line>
-      <line no="183">
+      <line no="140">
         <token name="T_WHITESPACE">		</token>
         <token name="T_STRING">string</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$context</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="184">
+      <line no="141">
         <token name="T_WHITESPACE">		</token>
         <token name="T_STRING">string</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$title</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="185">
+      <line no="142">
         <token name="T_WHITESPACE">		</token>
         <token name="T_STRING">string</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$name</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="186">
+      <line no="143">
         <token name="T_WHITESPACE">		</token>
         <token name="T_STRING">string</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$type</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="187">
+      <line no="144">
         <token name="T_WHITESPACE">		</token>
         <token name="T_ARRAY">array</token>
         <token name="T_WHITESPACE"> </token>
@@ -1452,7 +1036,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="188">
+      <line no="145">
         <token name="T_WHITESPACE">		</token>
         <token name="T_ARRAY">array</token>
         <token name="T_WHITESPACE"> </token>
@@ -1464,7 +1048,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_COMMA">,</token>
       </line>
-      <line no="189">
+      <line no="146">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$default_value</token>
         <token name="T_WHITESPACE"> </token>
@@ -1472,18 +1056,18 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">null</token>
       </line>
-      <line no="190">
+      <line no="147">
         <token name="T_WHITESPACE">	</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_COLON">:</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_ARRAY">array</token>
       </line>
-      <line no="191">
+      <line no="148">
         <token name="T_WHITESPACE">	</token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="192">
+      <line no="149">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_WHITESPACE">                  </token>
@@ -1493,7 +1077,7 @@
         <token name="T_CLOSE_SQUARE">]</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="193">
+      <line no="150">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1505,7 +1089,7 @@
         <token name="T_VARIABLE">$title</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="194">
+      <line no="151">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1517,7 +1101,7 @@
         <token name="T_VARIABLE">$name</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="195">
+      <line no="152">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1529,7 +1113,7 @@
         <token name="T_VARIABLE">$title</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="196">
+      <line no="153">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1541,7 +1125,7 @@
         <token name="T_VARIABLE">$title</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="197">
+      <line no="154">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1553,7 +1137,7 @@
         <token name="T_VARIABLE">$type</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="198">
+      <line no="155">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1565,7 +1149,7 @@
         <token name="T_VARIABLE">$default_value</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="199">
+      <line no="156">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1577,7 +1161,7 @@
         <token name="T_VARIABLE">$context</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="200">
+      <line no="157">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1589,7 +1173,7 @@
         <token name="T_VARIABLE">$params</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="201">
+      <line no="158">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1601,7 +1185,7 @@
         <token name="T_VARIABLE">$fieldparams</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="202">
+      <line no="159">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1613,7 +1197,7 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">'*'</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="203">
+      <line no="160">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1625,7 +1209,7 @@
         <token name="T_LNUMBER">1</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="204">
+      <line no="161">
         <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$data</token>
         <token name="T_OPEN_SQUARE">[</token>
@@ -1637,660 +1221,27 @@
         <token name="T_LNUMBER">1</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="205">
+      <line no="162">
         <token name="T_WHITESPACE">		</token>
       </line>
-      <line no="206">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_RETURN">return</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$data</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="207">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="208">
-        <token name="T_WHITESPACE">	</token>
-      </line>
-      <line no="209">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="210">
-        <token name="T_DOC_COMMENT">	 *</token>
-      </line>
-      <line no="211">
-        <token name="T_DOC_COMMENT">	 * @return bool</token>
-      </line>
-      <line no="212">
-        <token name="T_DOC_COMMENT">	 *</token>
-      </line>
-      <line no="213">
-        <token name="T_DOC_COMMENT">	 * @since version</token>
-      </line>
-      <line no="214">
-        <token name="T_DOC_COMMENT">	 */</token>
-      </line>
-      <line no="215">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_PRIVATE">private</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STATIC">static</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">generateInitialFields</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="216">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="217">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$plugin_params</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Util</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">getMainPluginParams</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="218">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="219">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$model</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Util</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">createFieldModel</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="220">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="221">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$context</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">trim</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$plugin_params</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">get</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'field_context'</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'com_content.article'</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="222">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="223">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_COMMENT">// id of api url to fetch from</token>
-      </line>
-      <line no="224">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$title</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'Id external source'</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="225">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$name</token>
-        <token name="T_WHITESPACE">  </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'id-external-source'</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="226">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="227">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$data</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">self</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">createFieldData</token>
-        <token name="T_OPEN_BRACKET">(</token>
-      </line>
-      <line no="228">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$context</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="229">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$title</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="230">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$name</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="231">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="232">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_SQUARE">[</token>
-      </line>
-      <line no="233">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"hint"</token>
-        <token name="T_WHITESPACE">               </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="234">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"class"</token>
-        <token name="T_WHITESPACE">              </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="235">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"label_class"</token>
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="236">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"show_on"</token>
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="237">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"render_class"</token>
-        <token name="T_WHITESPACE">       </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="238">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"showlabel"</token>
-        <token name="T_WHITESPACE">          </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="239">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"label_render_class"</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="240">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"display"</token>
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"2"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="241">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"layout"</token>
-        <token name="T_WHITESPACE">             </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="242">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"display_readonly"</token>
-        <token name="T_WHITESPACE">   </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="243">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="244">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_SQUARE">[</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'filter'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'integer'</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="245">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_STRING">null</token>
-      </line>
-      <line no="246">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="247">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="248">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$output</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Util</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">isUniqueFieldName</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$name</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$model</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">save</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$data</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="249">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="250">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_COMMENT">// radio yes or no update api</token>
-      </line>
-      <line no="251">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="252">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_COMMENT">// id of api url to fetch from</token>
-      </line>
-      <line no="253">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$title_yes_no</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Text</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">_</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'PLG_SYSTEM_UPDATECF_UPDATE_FIELD_LABEL'</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">true</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="254">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$name_yes_no</token>
-        <token name="T_WHITESPACE">  </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'cf-update'</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="255">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="256">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$data_yes_no</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">self</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">createFieldData</token>
-        <token name="T_OPEN_BRACKET">(</token>
-      </line>
-      <line no="257">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$context</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="258">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$title_yes_no</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="259">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_VARIABLE">$name_yes_no</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="260">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'radio'</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="261">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_SQUARE">[</token>
-      </line>
-      <line no="262">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"hint"</token>
-        <token name="T_WHITESPACE">               </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="263">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"class"</token>
-        <token name="T_WHITESPACE">              </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"btn-group btn-group-yesno"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="264">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"label_class"</token>
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="265">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"show_on"</token>
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="266">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"render_class"</token>
-        <token name="T_WHITESPACE">       </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="267">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"showlabel"</token>
-        <token name="T_WHITESPACE">          </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="268">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"label_render_class"</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="269">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"display"</token>
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"2"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="270">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"layout"</token>
-        <token name="T_WHITESPACE">             </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="271">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"display_readonly"</token>
-        <token name="T_WHITESPACE">   </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"1"</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="272">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="273">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_OPEN_SQUARE">[</token>
-      </line>
-      <line no="274">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'options'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_SQUARE">[</token>
-      </line>
-      <line no="275">
-        <token name="T_WHITESPACE">					</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'options0'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_SQUARE">[</token>
-      </line>
-      <line no="276">
-        <token name="T_WHITESPACE">						</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'name'</token>
-        <token name="T_WHITESPACE">  </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Text</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">_</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'JNO'</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">true</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="277">
-        <token name="T_WHITESPACE">						</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'value'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_LNUMBER">0</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="278">
-        <token name="T_WHITESPACE">					</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="279">
-        <token name="T_WHITESPACE">					</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'options1'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_SQUARE">[</token>
-      </line>
-      <line no="280">
-        <token name="T_WHITESPACE">						</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'name'</token>
-        <token name="T_WHITESPACE">  </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">Text</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">_</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'JYES'</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">true</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="281">
-        <token name="T_WHITESPACE">						</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'value'</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_LNUMBER">1</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="282">
-        <token name="T_WHITESPACE">					</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="283">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="284">
-        <token name="T_WHITESPACE">				</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'filter'</token>
-        <token name="T_WHITESPACE">  </token>
-        <token name="T_DOUBLE_ARROW">=&gt;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'integer'</token>
-        <token name="T_COMMA">,</token>
-      </line>
-      <line no="285">
-        <token name="T_WHITESPACE">			</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">null</token>
-      </line>
-      <line no="286">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="287">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="288">
-        <token name="T_WHITESPACE">		</token>
-        <token name="T_VARIABLE">$output_yes_no</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">Util</token>
-        <token name="T_DOUBLE_COLON">::</token>
-        <token name="T_STRING">isUniqueFieldName</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$name_yes_no</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$model</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">save</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$data_yes_no</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="289">
-        <token name="T_WHITESPACE">		</token>
-      </line>
-      <line no="290">
+      <line no="163">
         <token name="T_WHITESPACE">		</token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$output</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$output_yes_no</token>
-        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_VARIABLE">$data</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="291">
+      <line no="164">
         <token name="T_WHITESPACE">	</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="292">
+      <line no="165">
         <token name="T_WHITESPACE">	</token>
       </line>
-      <line no="293">
+      <line no="166">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="294"/>
+      <line no="167"/>
     </source>
   </file>
 </phpunit>

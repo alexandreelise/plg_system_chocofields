@@ -36,7 +36,6 @@ class DynamicMappingTest extends TestCase
 	 * @covers \AE\Library\CustomField\Helper\DynamicCustomFieldInference::__invoke
 	 * @covers \AE\Library\CustomField\Helper\DynamicMapping::createFieldData
 	 * @covers \AE\Library\CustomField\Helper\DynamicMapping::generateCustomFields
-	 * @covers \AE\Library\CustomField\Helper\DynamicMapping::generateInitialFields
 	 * @covers \AE\Library\CustomField\Util\Util::createFieldModel
 	 * @covers \AE\Library\CustomField\Util\Util::flattenAssocArray
 	 * @covers \AE\Library\CustomField\Util\Util::getJsonArray
@@ -44,16 +43,23 @@ class DynamicMappingTest extends TestCase
 	 * @covers \AE\Library\CustomField\Util\Util::isUniqueFieldName
 	 * @covers \AE\Library\CustomField\Util\Util::realKey
 	 * @covers \AE\Library\CustomField\Util\Util::realTitle
+	 * @covers \AE\Library\CustomField\Helper\DataManager::createIfNotExistsArticleJsonApiFile
+	 * @covers \AE\Library\CustomField\Util\Util::computeDataFilename
+	 * @covers \AE\Library\CustomField\Util\Util::hashedDataFilename
 	 * @since  \version
 	 */
 	public function testPrefillRemoteFieldsWithValidDataReturnsNonEmptyArray()
 	{
 		$expected = true;
 		
-		$base_url = 'https://social.brussels/rest/organisation/';
+		$categoryId = 14;
 		
-		$default_resource_id = '13219';
-		$actual              = DynamicMapping::prefillRemoteFields($base_url, $default_resource_id);
+		$articleId = 74;
+		
+		$baseUrl = 'https://social.brussels/rest/organisation/';
+		
+		$default_resource_id = 13219;
+		$actual              = DynamicMapping::prefillRemoteFields($categoryId, $articleId, $baseUrl, $default_resource_id);
 		Assert::assertSame($expected, $actual);
 	}
 }

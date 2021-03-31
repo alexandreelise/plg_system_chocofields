@@ -75,39 +75,52 @@ abstract class Content
 	 */
 	public static function updateArticleCustomFields($article, Registry $plugin_params): bool
 	{
-		JLoader::setup();
 		
-		JLoader::register('FieldsHelper',
-			JPATH_ADMINISTRATOR
-			. DIRECTORY_SEPARATOR
-		    . 'components'
-			. DIRECTORY_SEPARATOR
-			. 'com_fields'
-			. DIRECTORY_SEPARATOR
-			. 'helpers'
-			. DIRECTORY_SEPARATOR
-			. 'fields.php'
-		);
+		$attribs = Util::getJsonArray($article->attribs ?? '');
 		
-		$fields = FieldsHelper::getFields('com_content.article', $article, false, []);
+		$update           = (int)$attribs['cf_update'];
 		
-		$custom_fields_by_name = ArrayHelper::pivot($fields ?? [], 'name');
-		
-		$update           = (((int) ($custom_fields_by_name['cf-update']->rawvalue)) === 1);
-		$id_external_source = trim((string) ($custom_fields_by_name['id-external-source']->rawvalue ?? $plugin_params->get('default_resource_id','13219')));
+		$baseUrl = trim($attribs['base_url'] ?? $plugin_params->get('base_url','https://social.brussels/rest/organisation/'));
 		
 		
-		// We update a Article only if its Custom Field is set on Yes and if the
-		// ID of the External Source is filled in
-		if ($update && !empty($id_external_source))
+		$resourceId = (int) ($attribs['resource_id'] ?? $plugin_params->get('default_resource_id',13219));
+		
+		
+		// We update a Article only if its Custom Field is set on Yes
+		// and if the URL and ID of the External Source is filled in
+		if ($update && !empty($baseUrl) && !empty($resourceId))
 		{
-			$base_url = $plugin_params->get('base_url', 'https://social.brussels/rest/organisation/');
+			$categoryId = (int)$article->catid;
+			$articleId = (int)$article->id;
 			
-			$content_response = Util::fetchApiData($base_url, $id_external_source);
+			// if custom fields created successfully from api results continue otherwise stop here
+			$isCustomFieldsCreated = DynamicMapping::prefillRemoteFields($categoryId, $articleId, $baseUrl,$resourceId);
+		
+			if (!$isCustomFieldsCreated) {
+				
+				return false;
+			}
 			
-			// Updating custom fields in the article
-			return (($content_response !== false) ? static::updateCustomFields((int) $article->id, $custom_fields_by_name, $content_response->getBody())
-				: false);
+			
+			JLoader::setup();
+			
+			JLoader::register('FieldsHelper',
+				JPATH_ADMINISTRATOR
+				. DIRECTORY_SEPARATOR
+				. 'components'
+				. DIRECTORY_SEPARATOR
+				. 'com_fields'
+				. DIRECTORY_SEPARATOR
+				. 'helpers'
+				. DIRECTORY_SEPARATOR
+				. 'fields.php'
+			);
+			
+			$fields = FieldsHelper::getFields('com_content.article', $article, false, []);
+			
+			$customFieldsByName = ArrayHelper::pivot($fields ?? [], 'name');
+			
+			return static::updateCustomFields($categoryId, $articleId, $customFieldsByName,$baseUrl, $resourceId);
 		}
 		
 		return true;
@@ -116,40 +129,26 @@ abstract class Content
 	/**
 	 * Update of the Custom Fields values based on the external source (webservices).
 	 *
-	 * @param   int     $articleId              The ID of the article
-	 * @param   array   $custom_fields_by_name  The list of custom fields
-	 * @param   string  $http_response_body     The response body of http request
+	 * @param   int       $categoryId
+	 * @param   int       $articleId  The ID of the article
+	 * @param   array     $customFieldsByName
+	 * @param   string    $baseUrl
+	 * @param   int|null  $resourceId
 	 *
 	 * @return bool True on success
+	 * @throws \AE\Library\CustomField\ErrorHandling\UnprocessableEntityException
 	 */
-	private static function updateCustomFields(int $articleId, array $custom_fields_by_name, string $http_response_body): bool
+	private static function updateCustomFields(int  $categoryId, int $articleId, array $customFieldsByName, string $baseUrl, ?int $resourceId = null): bool
 	{
+		$jsonArray = DataManager::createIfNotExistsArticleJsonApiFile($categoryId, $articleId, $baseUrl, $resourceId);
 		
-		$cache   = Factory::getCache('plg_system_updatecf', 'callback');
-		$cacheId = sha1($http_response_body);
-		
-		try
-		{
-			$jsonArray = $cache->get('AE\Library\CustomField\Util\Util::getJsonArray', [$http_response_body], $cacheId);
-			
-		}
-		catch (CacheConnectingException $cacheConnectingException)
-		{
-			$jsonArray = Util::getJsonArray($http_response_body);
-			
-		}
-		catch (UnsupportedCacheException $unsupportedCacheException)
-		{
-			$jsonArray = Util::getJsonArray($http_response_body);
-		}
-		
-		$flatten_json_array = Util::flattenAssocArray($jsonArray);
+		$flattenJsonArray = Util::flattenAssocArray($jsonArray);
 		
 		$model = Util::createFieldModel();
 		
-		foreach ($flatten_json_array as $key => $value)
+		foreach ($flattenJsonArray as $key => $value)
 		{
-			$custom_field = $custom_fields_by_name[Util::realKey($key)];
+			$custom_field = $customFieldsByName[Util::realKey($key)];
 			$model->setFieldValue((string) $custom_field->id, (string) $articleId, (string) $value);
 			
 		}

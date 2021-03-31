@@ -41,82 +41,39 @@ abstract class DynamicMapping
 {
 	
 	/**
-	 * Prefill dynamic mapping fields based of fetched data from base_url
+	 * Prefill dynamic mapping fields based of fetched data from baseUrl
 	 *
 	 * 1. GET request to fetch content from url
 	 * 2. If it is json data get only the first level keys
 	 * 3. create a json string from thoses keys to prepopulate the remote fields names
 	 *
-	 * @param   string       $base_url
-	 * @param   string|null  $id
+	 * @param   int       $categoryId
+	 * @param   int       $articleId
+	 * @param   string    $baseUrl
+	 * @param   int|null  $resourceId
 	 *
 	 * @return bool true on success
-	 * @throws \AE\Library\CustomField\ErrorHandling\NoContentException|\AE\Library\CustomField\ErrorHandling\NotFoundException
+	 * @throws \AE\Library\CustomField\ErrorHandling\UnprocessableEntityException
 	 * @since version
 	 */
-	public static function prefillRemoteFields(string $base_url, ?string $id = null): bool
+	public static function prefillRemoteFields(int $categoryId, int $articleId, string $baseUrl, ?int $resourceId = null): bool
 	{
-		// cache api response
-		$path = Constant::getDataDirectory();
+		$jsonArray = DataManager::createIfNotExistsArticleJsonApiFile($categoryId, $articleId, $baseUrl, $resourceId);
 		
-		// extension
-		$extension = '.json';
-		
-		$filename = $path . 'api' . $extension;
-		
-		
-		$json_response = '';
-		
-		if (file_exists($filename) && (filesize($filename) > 1))
-		{
-			$json_response = file_get_contents($filename);
-		}
-		elseif (!file_exists($filename) || (filesize($filename) < 1))
-		{
-			try
-			{
-				$json_response = Util::fetchApiData($base_url, $id);
-				
-				File::write($filename, $json_response, true);
-			}
-			catch (UnprocessableEntityException $noContentException)
-			{
-				$json_response = '';
-			}
-			catch (NotFoundException $notFoundException)
-			{
-				$json_response = '';
-			}
-			
-		}
-		
-		
-		if (empty($json_response))
-		{
-			throw new UnprocessableEntityException();
-		}
-		
-		$json_array = Util::getJsonArray($json_response);
-		
-		if (empty($json_array))
-		{
-			throw new UnprocessableEntityException();
-		}
-		
-		$remote_data_structure = Util::flattenAssocArray($json_array);
-		
-		return (self::generateInitialFields() || self::generateCustomFields($remote_data_structure));
+		$remoteDataStructure = Util::flattenAssocArray($jsonArray);
+		$resultGenerated = self::generateCustomFields($remoteDataStructure);
+		return $resultGenerated;
 	}
 	
 	
 	/**
-	 * @param   array  $flatten_json_array
+	 * @param   array  $flattenJsonArray
 	 *
 	 * @return bool
 	 *
 	 * @since version
 	 */
-	public static function generateCustomFields(array $flatten_json_array = []): bool
+	public static function generateCustomFields(array $flattenJsonArray = []): bool
 	{
 		$plugin_params = Util::getMainPluginParams();
 		
@@ -127,7 +84,7 @@ abstract class DynamicMapping
 		$output = false;
 		$infer  = (new DynamicCustomFieldInference());
 		
-		foreach ($flatten_json_array as $key => $value)
+		foreach ($flattenJsonArray as $key => $value)
 		{
 			$title = Util::realTitle($key);
 			$name  = Util::realKey($key);
@@ -204,90 +161,6 @@ abstract class DynamicMapping
 		$data['state']         = 1;
 		
 		return $data;
-	}
-	
-	/**
-	 *
-	 * @return bool
-	 *
-	 * @since version
-	 */
-	private static function generateInitialFields()
-	{
-		$plugin_params = Util::getMainPluginParams();
-		
-		$model = Util::createFieldModel();
-		
-		$context = trim($plugin_params->get('field_context', 'com_content.article'));
-		
-		// id of api url to fetch from
-		$title = 'Id external source';
-		$name  = 'id-external-source';
-		
-		$data = self::createFieldData(
-			$context,
-			$title,
-			$name,
-			'text',
-			[
-				"hint"               => "",
-				"class"              => "",
-				"label_class"        => "",
-				"show_on"            => "1",
-				"render_class"       => "",
-				"showlabel"          => "1",
-				"label_render_class" => "",
-				"display"            => "2",
-				"layout"             => "",
-				"display_readonly"   => "1",
-			],
-			['filter' => 'integer'],
-			null
-		);
-		
-		$output = (Util::isUniqueFieldName($name) && $model->save($data));
-		
-		// radio yes or no update api
-		
-		// id of api url to fetch from
-		$title_yes_no = Text::_('PLG_SYSTEM_UPDATECF_UPDATE_FIELD_LABEL', true);
-		$name_yes_no  = 'cf-update';
-		
-		$data_yes_no = self::createFieldData(
-			$context,
-			$title_yes_no,
-			$name_yes_no,
-			'radio',
-			[
-				"hint"               => "",
-				"class"              => "btn-group btn-group-yesno",
-				"label_class"        => "",
-				"show_on"            => "1",
-				"render_class"       => "",
-				"showlabel"          => "1",
-				"label_render_class" => "",
-				"display"            => "2",
-				"layout"             => "",
-				"display_readonly"   => "1",
-			],
-			[
-				'options' => [
-					'options0' => [
-						'name'  => Text::_('JNO', true),
-						'value' => 0,
-					],
-					'options1' => [
-						'name'  => Text::_('JYES', true),
-						'value' => 1,
-					],
-				],
-				'filter'  => 'integer',
-			], null
-		);
-		
-		$output_yes_no = (Util::isUniqueFieldName($name_yes_no) && $model->save($data_yes_no));
-		
-		return ($output && $output_yes_no);
 	}
 	
 }

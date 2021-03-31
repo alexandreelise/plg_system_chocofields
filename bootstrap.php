@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
+use Joomla\Event\Dispatcher;
 
 /**
  * Mock for the global application exit.
@@ -80,7 +81,7 @@ try
 		. 'fields.php'
 	);
 	
-	require_once __DIR__ . '/src/updatecf.php';
+	require_once __DIR__ . '/src/chocofields.php';
 }
 catch (Throwable $e)
 {

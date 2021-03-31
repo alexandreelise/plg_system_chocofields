@@ -15,12 +15,10 @@ declare(strict_types=1);
 namespace AE\Library\CustomField\Util\Tests;
 
 use AE\Library\CustomField\Core\Constant;
-use \AE\Library\CustomField\Util\Util;
+use AE\Library\CustomField\Util\Util;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
-use function dirname;
 use function file_get_contents;
-use const DIRECTORY_SEPARATOR;
 
 
 /**
@@ -351,12 +349,20 @@ class UtilTest extends TestCase
 	 *
 	 * @covers \AE\Library\CustomField\Util\Util::getJsonArray
 	 * @covers \AE\Library\CustomField\Core\Constant::getDataDirectory
+	 * @covers \AE\Library\CustomField\Util\Util::computeDataFilename
+	 * @covers \AE\Library\CustomField\Util\Util::hashedDataFilename
 	 * @since version
 	 */
 	public function testGetJsonArrayWithCachedApiJsonFile()
 	{
-		$filename = Constant::getDataDirectory() . 'api.json';
-		$data = file_get_contents($filename);
+		$categoryId        = 14;
+		$articleId         = 74;
+		$baseUrl           = 'https://social.brussels/rest/organisation/';
+		$resourceId = 13219;
+		
+		$filename = Util::computeDataFilename($categoryId, $articleId, $baseUrl, $resourceId);
+		
+		$data     = file_get_contents($filename);
 		
 		$expected = [
 			'id'                              => 13219,

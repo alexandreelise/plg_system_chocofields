@@ -51,7 +51,9 @@ abstract class Constant
 	 */
 	public static function getDataDirectory(): string
 	{
-		return dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))))
+		return dirname(dirname(dirname(dirname(dirname(__DIR__)))))
+			. DIRECTORY_SEPARATOR
+			. 'media'
 			. DIRECTORY_SEPARATOR
 			. 'data'
 			. DIRECTORY_SEPARATOR;

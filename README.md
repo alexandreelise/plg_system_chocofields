@@ -1,4 +1,4 @@
-# Update Custom Fields
+# Choco Fields
 
 ![Banner](./banner.svg)
 
@@ -14,50 +14,42 @@ Example of page for a given organization: <https://social.brussels/organisation/
 
 Corresponding page in json format (which will then be used to synchronize our Custom Field values): <https://social.brussels/rest/organisation/470>
 
-Therefore, some things (like the Fields we want to retrieve and synchronize) are _hardcoded_ in the plugin.
-But you can easily adapt the code to your needs according to your Source
+## INSTALLATION
+ * Go to build folder and install latest extension file
+
 
 ## Setup of the website for this plugin
 
-### Category and articles
+This version of the plugin uses what we call "Dynamic Custom Field Inference" . Behind this fancy looking words are basically if statements and some "secret" public sauce since this repo is public anyone can see it and play around with the code to grasp the idea behind this seemingly "complex" concept.
 
-We create a category (or several) to which we will assign a series of Custom Fields.
+This plugin tries it's best to infer and create dynamically the types of custom fields that migth come from the cached fetched json api.
 
-### Custom Fields to be created
+It attempts to adapt to any kind of json api regardless of its structure.
 
-The first two Custom Fields are
-- a Custom Field 
-  - of Type 'Radio'
-  - with Name 'cf-update'
-  - having two Values ('yes' and 'no')
-- a Custom Field
-  - of Type 'Text'
-  - with Name 'id-external-source'
+It accomplishes this by "flattening" the resulting cached json using the native Joomla! Registry flatten method which turns any json to a one dimension associative array which deeper keys are merge in one first level key seperated by a custom separator in our example it's a dot.
 
-The plugin will indeed trigger for a given article _only if_ 'cf-update' is set on 'yes' and if the 'id-external-site' is filled in.
-
-Then we also create a number of other Custom Fields, based on the Fields we want to retrieve from the json of the External Source.
-See the code of the plugin to see the Name of the chosen Fields, namely:
-- nameofficialfr
-- nameofficialnl
-- labelfr
-- labelnl
-- streetfr
-- streetnl
-- permanencyfr
-- permanencynl
-- emailfr
-- emailnl
-- fake-field
-
-The last field is created just to show that we have a default value (for example in case we make a spelling mistake in the Name of some Custom Field).
-
-Joomla natively supports multilangual websites. So we assign the corresponding language (FR / NL) to each Custom Field, meaning that they will appear in the front-end in function of the selected language on the website.
+Joomla natively supports multilingual websites. So we assign the corresponding language (FR / NL) to each Custom Field, meaning that they will appear in the front-end in function of the selected language on the website.
 
 ## Options
 
 The plugin has several Options. You can indeed:
-- select the Categories for which the synchronisation will take place
-- select the frequency of the synchronization
-- select the time at which the synchronization should trigger (in the TimeZone of the site. Note that the Log file is expressed in UTC)
-- enable/disable the Action Log (you can access the Log file on /administrator/logs/updatecf.trace.log.php)
+- Type a default api url in plugin params as fallback to each url customisable in the each article
+- Type a default resource id for the same purpose. (as a fallback)
+
+- Use the native Joomla! Ajax feature special url to call trigger a manual update via url, cron or webcron
+- enable/disable the Action Log (you can access the Log file on JPATH_ROOT/administrator/logs/chocofields.trace.log.php or JPATH_ROOT/logs)
+
+## SPECIAL THANKS
+This plugin is based on the work of a core "team" of 4 joomlers which are:
+
+* [Pascal Leconte](https://www.conseilgouz.com)
+* [Christophe Avonture](https://avonture.be)
+* [Marc Dechèvre](https://woluweb.be)
+* [Alexandre ELISÉ](https://coderparlerpartager.fr)
+
+
+## BASED ON
+The first version of this plugin can be found [here](https://github.com/woluweb/updatecf)
+
+## CONTRIBUTIONS
+Contributions are welcome to improve this plugin. Still work in progress.

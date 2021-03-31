@@ -15,19 +15,12 @@ declare(strict_types=1);
 
 namespace AE\Library\CustomField\Service;
 
-use AE\Library\CustomField\Core\Constant;
 use AE\Library\CustomField\Helper\Content;
+use AE\Library\CustomField\Helper\DynamicMapping;
 use AE\Library\CustomField\Util\Util;
-use JLoader;
-use Joomla\CMS\Application\CMSApplication;
-use Joomla\CMS\Factory;
 use Joomla\CMS\Log\Log;
-use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-use Joomla\CMS\Version;
 use Joomla\Registry\Registry;
 use function defined;
-use function substr;
-use const DIRECTORY_SEPARATOR;
 
 defined('_JEXEC') or die;
 
@@ -43,6 +36,7 @@ abstract class Core
 	/**
 	 * Make the update, process articles.
 	 *
+	 * @param                              $article
 	 * @param   \Joomla\Registry\Registry  $plugin_params
 	 *
 	 * @return void
@@ -51,75 +45,19 @@ abstract class Core
 	 * @author    Christophe Avonture <christophe@avonture.be>
 	 * @author    Alexandre ELISÉ <contact@alexandre-elise.fr>
 	 */
-	public static function goUpdate(Registry $plugin_params): void
+	public static function goUpdate($article, Registry $plugin_params): void
 	{
-		$res        = Content::getAllCategories();
-		$categories = $plugin_params->get('categories') ?? array_values(
-				array_filter(
-					array_map(
-						function ($category) {
-							return ((int) $category->count > 0) ? $category->id : null;
-						}, $res)
-				)
-			);
-		
-		JLoader::register('ContentModelArticles',
-			JPATH_SITE
-			. DIRECTORY_SEPARATOR
-			. 'components'
-			. DIRECTORY_SEPARATOR
-			. 'com_content'
-			. DIRECTORY_SEPARATOR
-			. 'models'
-			. DIRECTORY_SEPARATOR
-			. 'articles.php'
-		);
-		$articles = BaseDatabaseModel::getInstance('Articles', 'ContentModel', ['ignore_request' => true]);
-		
-		
-		if (!isset($articles))
+		$isLogActive = Util::isLogActive();
+		$result      = Content::updateArticleCustomFields($article, $plugin_params);
+		if (!$isLogActive)
 		{
 			return;
 		}
+		$result ? Log::add('The article with id: ' . $article->id . ' has been successfully updated', Log::INFO, 'plg_system_chocofields')
+			: Log::add('The article with id: ' . $article->id . ' has not been updated', Log::ERROR, 'plg_system_chocofields');
 		
-		$params = new Registry();
-		
-		$articles->setState('params', $params);
-		$articles->setState('list.limit', 0);
-		$articles->setState('list.start', 0);
-		$articles->setState('filter.tag', 0);
-		$articles->setState('list.ordering', 'a.ordering');
-		$articles->setState('list.direction', 'ASC');
-		$articles->setState('filter.published', 1);
-		
-		$articles->setState('filter.category_id', $categories);
-		
-		$articles->setState('filter.featured', 'show');
-		$articles->setState('filter.author_id', '');
-		$articles->setState('filter.author_id.include', 1);
-		$articles->setState('filter.access', false);
-		
-		$app = CMSApplication::getInstance(Util::getClient());
-		
-		Factory::$application = $app;
-		
-		$items         = $articles->getItems();
-		$is_log_active = Util::isLogActive();
-		
-		// Process all articles
-		foreach ($items as $item)
-		{
-			$result = Content::updateArticleCustomFields($item, $plugin_params);
-			if (!$is_log_active)
-			{
-				continue;
-			}
-			$result ? Log::add('The article with id: ' . $item->id . ' has been successfully updated', Log::INFO, 'plg_system_updatecf')
-				: Log::add('The article with id: ' . $item->id . ' has not been updated', Log::ERROR, 'plg_system_updatecf');
-			
-		}
 	}
-
+	
 	/**
 	 * The present plugin will trigger automatically at the frequency configured
 	 * in the Plugin Options.
@@ -127,14 +65,15 @@ abstract class Core
 	 * To do so it creates a file with the timestamp of the last execution
 	 * Note: the manual way to trigger the Plugin is simply to (Open and) Save it
 	 *
-	 * @param Registry $plugin_params
+	 * @param             $article
+	 * @param   Registry  $plugin_params
 	 *
 	 * @return void
 	 */
-	public static function manualPluginSaving(Registry $plugin_params): void
+	public static function manualPluginSaving($article, Registry $plugin_params): void
 	{
-		static::goUpdate($plugin_params);
-
-		Log::add('Plugin has been edited and saved', Log::INFO, 'plg_system_updatecf');
+		static::goUpdate($article, $plugin_params);
+		
+		Log::add('Plugin has been edited and saved', Log::INFO, 'plg_system_chocofields');
 	}
 }

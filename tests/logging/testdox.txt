@@ -1,6 +1,6 @@
 Dynamic Custom Field Inference (AE\Library\CustomField\Helper\Tests\DynamicCustomFieldInference)
- [x] invoke with integer value
  [x] invoke with text value with more than 255 chars and less than 400 chars
+ [x] invoke with integer value
  [x] invoke with flatten string key with numeric part
  [x] invoke with float value
  [x] invoke with text value with less than 255 chars

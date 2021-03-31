@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<form name="external_api">
+    <fields name="attribs">
+        <fieldset name="external_api" label="External Api Fields"
+                  description="Fields to enable remote resource synchronisation">
+            <field name="base_url"
+                   type="url"
+                   label="PLG_SYSTEM_CHOCOFIELDS_BASE_URL_TO_FETCH_LABEL"
+                   description="PLG_SYSTEM_CHOCOFIELDS_BASE_URL_TO_FETCH_DESCRIPTION"
+                   default="https://social.brussels/rest/organisation/"
+                   size="255"
+                   maxlength="255"
+                   filter="url"
+                   validate="url"
+                   scheme="https"
+                   hint="https://example.com/rest"
+            />
+
+            <field
+                    name="resource_id"
+                    type="text"
+                    label="PLG_SYSTEM_CHOCOFIELDS_DEFAULT_RESOURCE_ID_LABEL"
+                    description="PLG_SYSTEM_CHOCOFIELDS_DEFAULT_RESOURCE_ID_DESCRIPTION"
+                    size="10"
+                    maxlength="10"
+                    filter="uint"
+                    default="13219"
+            />
+
+            <field name="cf_update"
+                   type="radio"
+                   default="0"
+                   label="PLG_SYSTEM_CHOCOFIELDS_UPDATE_FIELD_LABEL"
+                   description="PLG_SYSTEM_CHOCOFIELDS_UPDATE_FIELD_DESCRIPTION"
+                   filter="uint"
+                   class="btn-group btn-group-yesno"
+            >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+        </fieldset>
+    </fields>
+</form>

@@ -20,22 +20,12 @@ defined('_JEXEC') or die;
 
 
 /**
- * @package     ${NAMESPACE}
- *
- * @since       version
+ * Class PlgSystemChocofieldsInstallerScript
  */
-class PlgSystemUpdatecfInstallerScript extends InstallerScript
+class PlgSystemChocofieldsInstallerScript extends InstallerScript
 {
 	/**
-	 * Destination path of
-	 *
-	 * @var string $dst
-	 */
-	private $dst;
-
-
-	/**
-	 * PlgSystemUpdatecfInstallerScript constructor.
+	 * PlgSystemChocofieldsInstallerScript constructor.
 	 *
 	 * @param   InstallerAdapter  $adapter
 	 *
@@ -43,7 +33,6 @@ class PlgSystemUpdatecfInstallerScript extends InstallerScript
 	 */
 	public function __construct($adapter)
 	{
-		$this->dst           = JPATH_ROOT . DIRECTORY_SEPARATOR . 'cli' . DIRECTORY_SEPARATOR;
 		$this->minimumJoomla = '3.9';
 		$this->minimumPhp    = 7.2;
 	}
@@ -63,15 +52,6 @@ class PlgSystemUpdatecfInstallerScript extends InstallerScript
 
 		if (strtolower($type) === 'uninstall')
 		{
-			$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_MESSAGE_REMOVING_CLI_SCRIPT', true));
-			if ($this->removeCliScript() === false)
-			{
-				$app->enqueueMessage(Text::sprintf('PLG_SYSTEM_UPDATECF_MESSAGE_CANNOT_REMOVE_CLI_SCRIPT', implode('<br>', [$this->dst . 'updatecf-cli.php'])), 'error');
-
-				return false;
-			}
-			$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_MESSAGE_REMOVED_SUCCESSFULLY', true));
-
 			return true;
 		}
 
@@ -80,7 +60,7 @@ class PlgSystemUpdatecfInstallerScript extends InstallerScript
 		// Running Joomla! 2.5
 		if (!$jversion->isCompatible('3.0.0'))
 		{
-			$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_MESSAGE_IS_COMPATIBLE', true), 'error');
+			$app->enqueueMessage(Text::_('PLG_SYSTEM_CHOCOFIELDS_MESSAGE_IS_COMPATIBLE', true), 'error');
 
 			return false;
 		}
@@ -88,7 +68,7 @@ class PlgSystemUpdatecfInstallerScript extends InstallerScript
 		// Running 3.x
 		if (!$jversion->isCompatible('3.9.0'))
 		{
-			$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_MESSAGE_PLEASE_UPGRADE', true), 'error');
+			$app->enqueueMessage(Text::_('PLG_SYSTEM_CHOCOFIELDS_MESSAGE_PLEASE_UPGRADE', true), 'error');
 
 			return false;
 		}
@@ -143,73 +123,11 @@ class PlgSystemUpdatecfInstallerScript extends InstallerScript
 	{
 		$app = Factory::getApplication();
 
-		$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_POSTFLIGHT_' . strtoupper($type) . '_MESSAGE', true));
+		$app->enqueueMessage(Text::_('PLG_SYSTEM_CHOCOFIELDS_POSTFLIGHT_' . strtoupper($type) . '_MESSAGE', true));
 
 		if (in_array(strtolower($type), ['install', 'discover_install', 'update']))
 		{
-			$result = $this->copyCliScript();
-
-			if ($result === false) {
-				$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_MESSAGE_CANNOT_COPY_CLI_SCRIPT', true), 'error');
-				return false;
-			}
-			$app->enqueueMessage(Text::_('PLG_SYSTEM_UPDATECF_MESSAGE_CLI_SCRIPT_COPIED_SUCCESSFULLY', true));
 			return true;
-		}
-
-		return true;
-	}
-
-
-	/**
-	 * Copy cli script from plugin folder to real joomla cli folder
-	 *
-	 * @return bool True on success
-	 * @since version
-	 */
-	private function copyCliScript()
-	{
-		// can be used by a real cronjob scheduler
-		$sourceCliScriptFileName =
-			JPATH_PLUGINS
-			. DIRECTORY_SEPARATOR
-			. 'system'
-			. DIRECTORY_SEPARATOR
-			. 'updatecf'
-			. DIRECTORY_SEPARATOR
-			. 'cli'
-			. DIRECTORY_SEPARATOR
-			. 'updatecf-cli.php';
-
-		// destination folder
-		$destinationCliScriptFileName =
-			JPATH_ROOT
-			. DIRECTORY_SEPARATOR
-			. 'cli'
-			. DIRECTORY_SEPARATOR
-			. 'updatecf-cli.php';
-
-		// copy joomla cli application script from this plugin cli folder
-		// to the real joomla default cli folder
-		return File::copy(
-			$sourceCliScriptFileName,
-			$destinationCliScriptFileName
-		);
-	}
-
-
-	/**
-	 * Remove cli script installed to handle cron tasks
-	 *
-	 * @return bool True when successfully deleted cli script
-	 */
-	private function removeCliScript()
-	{
-		$filename = $this->dst . 'updatecf-cli.php';
-
-		if (file_exists($filename))
-		{
-			return unlink($filename);
 		}
 
 		return true;

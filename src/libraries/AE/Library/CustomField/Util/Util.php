@@ -27,6 +27,7 @@ use Joomla\CMS\Table\Table;
 use Joomla\Registry\Registry;
 use function define;
 use function defined;
+use function hash;
 use function in_array;
 use function json_decode;
 use function json_encode;
@@ -60,9 +61,9 @@ abstract class Util
 	public static function getMainPluginParams(): Registry
 	{
 		/**
-		 * @var \PlgSystemUpdatecf $plugin
+		 * @var \PlgSystemChocofields $plugin
 		 */
-		$plugin = PluginHelper::getPlugin('system', 'updatecf');
+		$plugin = PluginHelper::getPlugin('system', 'chocofields');
 		
 		return (new Registry($plugin->params));
 	}
@@ -115,23 +116,23 @@ abstract class Util
 	}
 	
 	/**
-	 * Sanitize the result of base_url and id
+	 * Sanitize the result of baseUrl and id
 	 *
-	 * @param   string       $base_url
-	 * @param   string|null  $id
+	 * @param   string       $baseUrl
+	 * @param   int|null  $id
 	 *
 	 * @return string
 	 *
 	 * @since version
 	 */
-	public static function cleanUrl(string $base_url, ?string $id = null): string
+	public static function cleanUrl(string $baseUrl, ?int $id = null): string
 	{
-		if (empty($base_url))
+		if (empty($baseUrl))
 		{
 			return '';
 		}
 		
-		return PunycodeHelper::urlToUTF8($base_url) . (isset($id) ? urlencode($id) : '');
+		return PunycodeHelper::urlToUTF8($baseUrl) . (isset($id) ? $id : '');
 	}
 	
 	/**
@@ -191,7 +192,7 @@ abstract class Util
 	}
 	
 	/**
-	 * Did the user chose to activate logging in updatecf plugin params?
+	 * Did the user chose to activate logging in chocofields plugin params?
 	 *
 	 * @return bool true active false otherwise
 	 *
@@ -229,40 +230,41 @@ abstract class Util
 	/**
 	 * fetch data from remote api returned as json
 	 *
-	 * @param   string       $base_url
-	 * @param   string|null  $id
+	 * @param   string    $baseUrl
+	 * @param   int|null  $id
 	 *
 	 * @return string json response on success false on error
-	 * @throws \AE\Library\CustomField\ErrorHandling\NotFoundException|\AE\Library\CustomField\ErrorHandling\UnprocessableEntityException
+	 * @throws \AE\Library\CustomField\ErrorHandling\NotFoundException
+	 * @throws \AE\Library\CustomField\ErrorHandling\UnprocessableEntityException
 	 * @since version
 	 */
-	public static function fetchApiData(string $base_url, ?string $id = null)
+	public static function fetchApiData(string $baseUrl, ?int $id = null)
 	{
 		// 1. GET request to fetch url content
-		$url = Util::cleanUrl($base_url, $id);
+		$url = Util::cleanUrl($baseUrl, $id);
 		
 		$http = self::createHttpClient();
 		
-		$get_request_headers = [
+		$getRequestHeaders = [
 			'Content-Type' => 'application/json',
 		];
 		
-		$content_response = $http->get($url, $get_request_headers);
+		$contentResponse = $http->get($url, $getRequestHeaders);
 		
 		// 2. Try to decode json response to assoc array
-		if (!in_array((int) $content_response->code, [Constant::HTTP_OK, Constant::HTTP_FOUND], true))
+		if (!in_array((int) $contentResponse->code, [Constant::HTTP_OK, Constant::HTTP_FOUND], true))
 		{
 			throw new NotFoundException();
 		}
 		
-		$json_response = $content_response->body ?? '';
+		$jsonResponse = $contentResponse->body ?? '';
 		
-		if (empty($json_response))
+		if (empty($jsonResponse))
 		{
 			throw new UnprocessableEntityException();
 		}
 		
-		return $json_response;
+		return $jsonResponse;
 	}
 	
 	/**
@@ -276,6 +278,9 @@ abstract class Util
 	{
 		$http_options = new Registry([]);
 		
+		// DO NOT DO THIS IN PRODUCTION
+		// ALWAYS SET verify_peer, verify_peer_name to true
+		// AND allow_self_signed to false
 		$transport_options = new Registry([
 			'ssl' => [
 				'verify_peer'       => false,
@@ -316,4 +321,54 @@ abstract class Util
 		return BaseDatabaseModel::getInstance('Field', 'FieldsModel', ['ignore_request' => true]);
 		
 	}
+	
+	/**
+	 * Hashed data filename after each api fetch
+	 * to mitigate duplicate fetch of the same content
+	 *
+	 * @param   int       $categoryId
+	 * @param   int       $articleId
+	 * @param   string    $baseUrl
+	 * @param   int|null  $resourceId
+	 *
+	 * @return string
+	 */
+	private static function hashedDataFilename(int $categoryId, int $articleId, string $baseUrl, ?int $resourceId)
+	{
+		return hash('sha256', (string) ($categoryId . $articleId . $baseUrl . $resourceId));
+	}
+	
+	
+	/**
+	 * Computed filename based on unique enough values
+	 *
+	 * @param   int          $categoryId
+	 * @param   int          $articleId
+	 * @param   string       $baseUrl
+	 * @param   int|null     $resourceId
+	 * @param   string|null  $givenPath
+	 * @param   string|null  $givenPrefix
+	 * @param   string|null  $givenExtension
+	 *
+	 * @return string
+	 */
+	public static function computeDataFilename(int $categoryId, int $articleId, string $baseUrl, ?int $resourceId, ?string $givenPath = null, ?string $givenPrefix = null, ?string $givenExtension = null)
+	{
+		// cache api path
+		$path = $givenPath ?? Constant::getDataDirectory();
+		
+		// file prefix
+		$prefix = $givenPrefix ?? 'api-';
+		
+		// file extension
+		$extension = $givenExtension ?? '.json';
+		
+		// unique enough hash to prevent duplicates
+		$hash = self::hashedDataFilename($categoryId, $articleId, $baseUrl, $resourceId);
+		
+		$filename = $path . $prefix . $hash . $extension;
+		
+		return $filename;
+	}
+	
 }

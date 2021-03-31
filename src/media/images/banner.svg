@@ -54,7 +54,18 @@
                     margin: 0;
                     width: 100%;
                     height: 200px;
-                    background: linear-gradient(-45deg, #fc5c7d, #6a82fb, #05dfd7);
+                background: #7B3F00;
+                background: linear-gradient(to bottom, #7B3F00 0%, #6C3000 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7B3F00), color-stop(100%, #6C3000));
+                background: -webkit-linear-gradient(top, #7B3F00 0%, #6C3000 100%);
+                background: -moz-linear-gradient(top, #7B3F00 0%, #6C3000 100%);
+                background: -o-linear-gradient(top, #7B3F00 0%, #6C3000 100%);
+                background: -ms-linear-gradient(top, #7B3F00 0%, #6C3000 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7B3F00', endColorstr='#6C3000', GradientType=0);
+                border: 1px solid #5D2100;
+                box-shadow: inset 0 1px 0 #8A4E0F;
+                -webkit-box-shadow: inset 0 1px 0 #8A4E0F;
+                -moz-box-shadow: inset 0 1px 0 #8A4E0F;
                     background-size: 600% 200%;
                     animation: gradientBackground 10s ease infinite;
                     border-radius: 10px;
@@ -83,7 +94,7 @@
                 }
             </style>
             <div class="container">
-                <h1>Update Custom Fields</h1>
+                <h1>Choco Fields</h1>
                 <p>Joomla plugin to populate Custom Fields from Webservices</p>
             </div>
         </div>
