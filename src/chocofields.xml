@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>contact@alexandre-elise.fr</authorEmail>
 	<authorUrl>https://coderparlerpartager.fr</authorUrl>
-	<version>1.0.0</version>
+	<version>0.1.0</version>
 	<description>PLG_SYSTEM_CHOCOFIELDS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
 	<media folder="media" destination="plg_system_chocofields">
