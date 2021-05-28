@@ -8,3 +8,4 @@ joomla3x/
 *.cache
 *.tmp
 composer.lock
+tests/

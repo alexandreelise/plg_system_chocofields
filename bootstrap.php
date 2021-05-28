@@ -28,7 +28,9 @@ function jexit($message = 0)
 
 $_SERVER['HTTP_HOST']   = 'example.com';
 $_SERVER['REQUEST_URI'] = '';
-$joomla                 = 'joomla3x';
+
+//a freshly uncompressed and installed joomla 3 directory
+$joomla                 = 'your_freshly_uncompressed_joomla3_directory';
 
 // Fix magic quotes.
 ini_set('magic_quotes_runtime', '0');
