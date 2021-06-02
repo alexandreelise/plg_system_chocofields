@@ -79,4 +79,4 @@ En français
 * Twitter: https://twitter.com/mralexandrelise
 * Facebook: https://www.facebook.com/mralexandrelise
 * Linkedin: https://www.linkedin.com/company/mralexandrelise
-* Youtube: coderparlerpartager
+* Youtube: [coderparlerpartager](https://www.youtube.com/channel/UCCya8rIL-PVHm8Mt4QPW-xw?sub_confirmation=1)
