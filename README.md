@@ -45,7 +45,7 @@ This plugin is based on the work of a core "team" of 4 joomlers which are:
 * [Pascal Leconte](https://www.conseilgouz.com)
 * [Christophe Avonture](https://avonture.be)
 * [Marc Dechèvre](https://woluweb.be)
-* [Alexandre ELISÉ](https://coderparlerpartager.fr)
+* [Alexandre ELISÉ](https://alexandre-elise.fr)
 
 
 ## BASED ON
@@ -53,3 +53,30 @@ The first version of this plugin can be found [here](https://github.com/woluweb/
 
 ## CONTRIBUTIONS
 Contributions are welcome to improve this plugin. Still work in progress.
+
+## COMMUNITY
+
+In English:
+
+> Get in touch on social media or contact me directly
+
+* Website: https://alexandre-elise.fr/en
+* Contact: https://alexandre-elise.fr/en/say-hello
+* Newsletter: https://alexandre-elise.fr/en/get-newsletter
+
+---------------------------------------------------
+
+En français
+
+> Contactez-moi directement ou bien sur les réseaux sociaux
+
+* Site web: https://alexandre-elise.fr
+* Contact: https://alexandre-elise.fr/contact
+* Newsletter: https://alexandre-elise.fr/newsletter
+
+-------------------------------------------------------
+
+* Twitter: https://twitter.com/mralexandrelise
+* Facebook: https://www.facebook.com/mralexandrelise
+* Linkedin: https://www.linkedin.com/in/alexandree
+* Youtube: coderparlerpartager
