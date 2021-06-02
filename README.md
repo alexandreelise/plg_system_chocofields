@@ -78,5 +78,5 @@ En français
 
 * Twitter: https://twitter.com/mralexandrelise
 * Facebook: https://www.facebook.com/mralexandrelise
-* Linkedin: https://www.linkedin.com/in/alexandree
+* Linkedin: https://www.linkedin.com/company/mralexandrelise
 * Youtube: coderparlerpartager
