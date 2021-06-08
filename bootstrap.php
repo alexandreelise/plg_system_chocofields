@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @author        Alexandre ELISÉ <contact@alexandre-elise.fr>
  * @copyright (c) 2009-2021 . Alexandre ELISÉ . Tous droits réservés.
  * @license       GPL-2.0-and-later GNU General Public License v2.0 or later
- * @link          https://coderparlerpartager.fr
+ * @link          https://alexandre-elise.fr
  */
 
 use Joomla\CMS\Application\CMSApplication;
@@ -30,7 +30,7 @@ $_SERVER['HTTP_HOST']   = 'example.com';
 $_SERVER['REQUEST_URI'] = '';
 
 //a freshly uncompressed and installed joomla 3 directory
-$joomla                 = 'your_freshly_uncompressed_joomla3_directory';
+$joomla                 = 'your_freshly_uncompressed_joomla3git _directory';
 
 // Fix magic quotes.
 ini_set('magic_quotes_runtime', '0');

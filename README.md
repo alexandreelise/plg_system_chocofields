@@ -45,7 +45,7 @@ This plugin is based on the work of a core "team" of 4 joomlers which are:
 * [Pascal Leconte](https://www.conseilgouz.com)
 * [Christophe Avonture](https://avonture.be)
 * [Marc Dechèvre](https://woluweb.be)
-* [Alexandre ELISÉ](https://coderparlerpartager.fr)
+* [Alexandre ELISÉ](https://alexandre-elise.fr)
 
 
 ## BASED ON
